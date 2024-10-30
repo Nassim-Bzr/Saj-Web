@@ -1,56 +1,105 @@
 "use client";
 import React, { useState } from "react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-[#2A394A] text-[#C97435] h-[70px] sticky top-0 z-50">
+    <nav className="bg-[#2A394A] text-[#C97435] shadow-md sticky top-0 z-50 font-rubik">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="text-2xl font-bold text-[#C97435]">
-            metadeal<span className="text-[#FF7E5F]"></span>
+          <div className="text-2xl font-bold text-[#C97435] font-rubik tracking-tight">
+            METADEAL<span className="text-[#FF7E5F]">.</span>
           </div>
 
-          {/* Searchbar - Visible uniquement sur desktop */}
+          {/* Menu de navigation - Desktop */}
+          <div className="hidden md:flex items-center space-x-8">
+            <NavigationMenu className="bg-[#2A394A]">
+              <NavigationMenuList className="bg-[#2A394A] group">
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger 
+                    className="bg-[#2A394A] text-[#C97435] font-rubik font-medium tracking-wide text-sm uppercase
+                    hover:text-white hover:bg-[#3A495A] 
+                    data-[state=open]:bg-[#3A495A] data-[state=open]:text-white 
+                    duration-200 outline-none focus:outline-none
+                    pointer-events-none group-hover:pointer-events-auto"
+                  >
+                    Formations
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent className="bg-[#2A394A] rounded-md shadow-lg p-4 border border-[#C97435]">
+                    <div className="grid grid-cols-2 gap-4 min-w-[400px]">
+                      <NavigationMenuLink className="p-2 hover:bg-[#3A495A] rounded-md text-[#C97435] hover:text-white transition-colors duration-200 font-rubik font-medium text-sm tracking-wide">
+                        Medecine Générale
+                      </NavigationMenuLink>
+                      <NavigationMenuLink className="p-2 hover:bg-[#3A495A] rounded-md text-[#C97435] hover:text-white transition-colors duration-200 font-rubik font-medium text-sm tracking-wide">
+                        Medecine Interne
+                      </NavigationMenuLink>
+                      <NavigationMenuLink className="p-2 hover:bg-[#3A495A] rounded-md text-[#C97435] hover:text-white transition-colors duration-200 font-rubik font-medium text-sm tracking-wide">
+                        Chirurgie
+                      </NavigationMenuLink>
+                      <NavigationMenuLink className="p-2 hover:bg-[#3A495A] rounded-md text-[#C97435] hover:text-white transition-colors duration-200 font-rubik font-medium text-sm tracking-wide">
+                        Psychiatrie
+                      </NavigationMenuLink>
+                      <NavigationMenuLink className="p-2 hover:bg-[#3A495A] rounded-md text-[#C97435] hover:text-white transition-colors duration-200 font-rubik font-medium text-sm tracking-wide">
+                        Pediatrie
+                      </NavigationMenuLink>
+                      <NavigationMenuLink className="p-2 hover:bg-[#3A495A] rounded-md text-[#C97435] hover:text-white transition-colors duration-200 font-rubik font-medium text-sm tracking-wide">
+                        Gynécologie
+                      </NavigationMenuLink>
+                      <NavigationMenuLink className="p-2 hover:bg-[#3A495A] rounded-md text-[#C97435] hover:text-white transition-colors duration-200 font-rubik font-medium text-sm tracking-wide">
+                        Gériatrie
+                      </NavigationMenuLink>
+                      <NavigationMenuLink className="p-2 hover:bg-[#3A495A] rounded-md text-[#C97435] hover:text-white transition-colors duration-200 font-rubik font-medium text-sm tracking-wide">
+                        Dentisterie
+                      </NavigationMenuLink>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
+            <a href="#" className="hover:text-white font-rubik font-medium text-sm uppercase tracking-wide transition duration-200">
+              Qui sommes-nous ?
+            </a>
+            <a href="#" className="hover:text-white font-rubik font-medium text-sm uppercase tracking-wide transition duration-200">
+              FAQ
+            </a>
+          </div>
+
+          {/* Searchbar */}
           <div className="hidden md:flex items-center space-x-4 flex-1 max-w-md mx-8">
             <div className="relative w-full">
               <input 
                 type="text" 
                 placeholder="Rechercher une formation" 
-                className="w-full border border-gray-300 rounded-md p-2 pl-4 pr-10 focus:outline-none focus:border-[#C97435]" 
+                className="w-full border border-gray-300 rounded-md p-2 pl-4 pr-10 focus:outline-none focus:border-[#C97435] font-rubik text-sm"
               />
-              <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#C97435] text-white px-3 py-1 rounded-md hover:bg-[#b8612a] transition duration-200">
+              <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#C97435] text-white px-3 py-1 rounded-md hover:bg-[#b8612a] transition duration-200 text-sm font-rubik">
                 Rechercher
               </button>
             </div>
           </div>
 
-          {/* Menu - Desktop */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="hover:text-white font-nunito text-base font-medium transition duration-200">
-              Formations
-            </a>
-            <a href="#" className="hover:text-white font-nunito text-base font-medium transition duration-200">
-              Qui sommes-nous ?
-            </a>
-            <a href="#" className="hover:text-white font-nunito text-base font-medium transition duration-200">
-              FAQ
-            </a>
-          </div>
-
           {/* Connexion et Contact */}
           <div className="hidden md:flex items-center space-x-6">
-            <button className="bg-[#C97435] text-white font-medium py-2 px-4 rounded-full hover:bg-[#b8612a] transition duration-200">
+            <button className="bg-[#C97435] text-white font-rubik font-medium text-sm uppercase tracking-wide py-2 px-4 rounded-full hover:bg-[#b8612a] transition duration-200">
               Se connecter
             </button>
-            <a href="tel:0188555555" className="text-[#C97435] hover:text-white transition duration-200 font-medium">
+            <a href="tel:0188555555" className="text-[#C97435] hover:text-white transition duration-200 font-rubik font-medium text-sm tracking-wide">
               01 88 55 55 55
             </a>
           </div>
 
-          {/* Menu burger pour mobile */}
+          {/* Menu burger pour mobile - reste inchangé */}
           <button 
             className="md:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -64,14 +113,14 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Menu mobile */}
+        {/* Menu mobile - reste inchangé */}
         {isMenuOpen && (
           <div className="md:hidden py-4">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <input 
-                type="text" 
-                placeholder="Rechercher une formation" 
-                className="w-full border border-gray-300 rounded-md p-2 mb-4" 
+              <input
+                type="text"
+                placeholder="Rechercher une formation"
+                className="w-full border border-gray-300 rounded-md p-2 mb-4"
               />
               <a href="#" className="block px-3 py-2 text-base font-medium hover:text-white">
                 Formations
