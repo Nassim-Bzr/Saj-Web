@@ -8,6 +8,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,9 +19,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="text-2xl font-bold text-[#C97435] font-rubik tracking-tight">
-            METADEAL<span className="text-[#FF7E5F]">.</span>
+            <Link href="/">
+              METADEAL<span className="text-[#FF7E5F]">.</span>
+            </Link>
           </div>
-
           {/* Menu de navigation - Desktop */}
           <div className="hidden md:flex items-center space-x-8">
             <NavigationMenu className="bg-[#2A394A]">
@@ -91,9 +93,20 @@ export default function Navbar() {
 
           {/* Connexion et Contact */}
           <div className="hidden md:flex items-center space-x-6">
-            <button className="bg-[#C97435] text-white font-rubik font-medium text-sm uppercase tracking-wide py-2 px-4 rounded-full hover:bg-[#b8612a] transition duration-200">
-              Se connecter
-            </button>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/login"
+                className="px-4 py-2 text-[#C97435] hover:text-white hover:bg-[#3A495A] rounded-md transition-colors duration-200"
+              >
+                Connexion
+              </Link>
+              <Link
+                href="/register"
+                className="px-4 py-2 bg-[#C97435] text-white hover:bg-[#A65E2A] rounded-md transition-colors duration-200"
+              >
+                Inscription
+              </Link>
+            </div>
             <a href="tel:0188555555" className="text-[#C97435] hover:text-white transition duration-200 font-rubik font-medium text-sm tracking-wide">
               01 88 55 55 55
             </a>

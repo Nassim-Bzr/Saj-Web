@@ -45,6 +45,10 @@ export default function Testimonials() {
     setSelectedPlatform(platform);
   };
 
+  
+
+
+
   return (
     <div className="bg-[#FDF5EB] py-16">
       <div className="container mx-auto text-center mb-8">
