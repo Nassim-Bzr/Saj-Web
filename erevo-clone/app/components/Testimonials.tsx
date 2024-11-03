@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-type Platform = "facebook" | "google"; // Définition du type pour platform
+type Platform = "facebook" | "google";
 
 export default function Testimonials() {
   const [selectedPlatform, setSelectedPlatform] = useState<Platform>("facebook");
@@ -15,8 +15,7 @@ export default function Testimonials() {
         content: "Une formation exceptionnelle qui m'a permis d'améliorer ma pratique quotidienne.",
         rating: 5,
         date: "15 janvier 2024"
-      },
-      // ... autres témoignages Facebook
+      }
     ],
     google: [
       {
@@ -25,8 +24,7 @@ export default function Testimonials() {
         content: "Excellente formation, très pratique et applicable immédiatement.",
         rating: 5,
         date: "20 janvier 2024"
-      },
-      // ... autres témoignages Google
+      }
     ]
   };
 
