@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "../../public/images/52070.jpg";
 
 export default function Testimonials() {
   const [selectedPlatform, setSelectedPlatform] = useState("facebook");
@@ -54,7 +55,9 @@ export default function Testimonials() {
       <div className="container mx-auto text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-800 mb-2">Plus de 31.000 professionnels de santé formés</h2>
         <p className="text-lg text-gray-600">du 1er janvier 2019 au 31 août 2024.</p>
+       
       </div>
+    
 
       {/* Boutons pour Choisir les Avis */}
       <div className="flex justify-center space-x-4 mb-6">

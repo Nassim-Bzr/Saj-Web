@@ -9,9 +9,18 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logout } = useAuth();
+
+  const pathname = usePathname();
+
+  const isActive = (path: string) => {
+    return pathname === path ? "text-[#C97435]" : "text-gray-600";
+  };
 
   return (
     <nav className="bg-[#2A394A] text-[#C97435] shadow-md sticky top-0 z-50 font-rubik">
@@ -33,15 +42,17 @@ export default function Navbar() {
                     hover:text-white hover:bg-[#3A495A] 
                     data-[state=open]:bg-[#3A495A] data-[state=open]:text-white 
                     duration-200 outline-none focus:outline-none
-                    pointer-events-none group-hover:pointer-events-auto"
+                    group-hover:pointer-events-auto"
                   >
-                    Formations
+                    <Link href="/formations" className="flex items-center">
+                      Formations
+                    </Link>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="bg-[#2A394A] rounded-md shadow-lg p-4 border border-[#C97435]">
                     <div className="grid grid-cols-2 gap-4 min-w-[400px]">
-                      <NavigationMenuLink className="p-2 hover:bg-[#3A495A] rounded-md text-[#C97435] hover:text-white transition-colors duration-200 font-rubik font-medium text-sm tracking-wide">
+                      <Link href="/formations/medecine-generale" className="p-2 hover:bg-[#3A495A] rounded-md text-[#C97435] hover:text-white transition-colors duration-200 font-rubik font-medium text-sm tracking-wide">
                         Medecine Générale
-                      </NavigationMenuLink>
+                      </Link>
                       <NavigationMenuLink className="p-2 hover:bg-[#3A495A] rounded-md text-[#C97435] hover:text-white transition-colors duration-200 font-rubik font-medium text-sm tracking-wide">
                         Medecine Interne
                       </NavigationMenuLink>
@@ -69,12 +80,18 @@ export default function Navbar() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <a href="#" className="hover:text-white font-rubik font-medium text-sm uppercase tracking-wide transition duration-200">
-              Qui sommes-nous ?
-            </a>
-            <a href="#" className="hover:text-white font-rubik font-medium text-sm uppercase tracking-wide transition duration-200">
+            <Link 
+              href="/qui-sommes-nous" 
+              className={`${isActive('/qui-sommes-nous')} hover:text-[#C97435] transition-colors text-[#C97536] duration-200`}
+            >
+              Qui sommes-nous
+            </Link>
+            <Link 
+              href="/faq" 
+              className="hover:text-white font-rubik font-medium text-sm uppercase tracking-wide transition duration-200"
+            >
               FAQ
-            </a>
+            </Link>
           </div>
 
           {/* Searchbar */}
@@ -141,9 +158,12 @@ export default function Navbar() {
               <a href="#" className="block px-3 py-2 text-base font-medium hover:text-white">
                 Qui sommes-nous ?
               </a>
-              <a href="#" className="block px-3 py-2 text-base font-medium hover:text-white">
+              <Link 
+                href="/faq" 
+                className="block px-3 py-2 text-base font-medium hover:text-white"
+              >
                 FAQ
-              </a>
+              </Link>
               <button className="w-full bg-[#C97435] text-white font-medium py-2 px-4 rounded-full hover:bg-[#b8612a] transition duration-200 mt-4">
                 Se connecter
               </button>
