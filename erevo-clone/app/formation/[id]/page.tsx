@@ -1,6 +1,6 @@
 "use client";
 import { useParams } from 'next/navigation';
-import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/app/components/navbar';
 import Footer from '@/app/components/footer';
 import { useState } from 'react';
@@ -79,13 +79,15 @@ export default function FormationDetail() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#FDF5EB]">
+      <div className="min-h-screen bg-[#FDF5EB] py-16">
         {/* Hero Section */}
         <div className="relative h-[60vh] bg-black">
-          <img
+          <Image
             src={formation.imageUrl}
             alt={formation.title}
-            className="w-full h-full object-cover opacity-70"
+            width={1200}
+            height={600}
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
             <div className="container mx-auto px-4 h-full flex items-end pb-16">
@@ -147,10 +149,12 @@ export default function FormationDetail() {
                   Votre formateur
                 </h2>
                 <div className="flex items-center gap-6">
-                  <img
+                  <Image
                     src={formation.formateur.image}
                     alt={formation.formateur.name}
-                    className="w-24 h-24 rounded-full object-cover"
+                    width={200}
+                    height={200}
+                    className="w-16 h-16 rounded-full object-cover"
                   />
                   <div>
                     <h3 className="text-xl font-bold text-[#2a394a]">

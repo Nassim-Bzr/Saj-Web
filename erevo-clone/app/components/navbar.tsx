@@ -14,7 +14,6 @@ import { useAuth } from '../contexts/AuthContext';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user, logout } = useAuth();
 
   const pathname = usePathname();
 
