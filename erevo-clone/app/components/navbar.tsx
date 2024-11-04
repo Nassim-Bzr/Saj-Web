@@ -151,12 +151,18 @@ export default function Navbar() {
                 placeholder="Rechercher une formation"
                 className="w-full border border-gray-300 rounded-md p-2 mb-4"
               />
-              <a href="#" className="block px-3 py-2 text-base font-medium hover:text-white">
+              <Link 
+                href="/formations" 
+                className="block px-3 py-2 text-base font-medium hover:text-white"
+              >
                 Formations
-              </a>
-              <a href="#" className="block px-3 py-2 text-base font-medium hover:text-white">
+              </Link>
+              <Link 
+                href="/qui-sommes-nous" 
+                className="block px-3 py-2 text-base font-medium hover:text-white"
+              >
                 Qui sommes-nous ?
-              </a>
+              </Link>
               <Link 
                 href="/faq" 
                 className="block px-3 py-2 text-base font-medium hover:text-white"
