@@ -54,15 +54,7 @@ export default function Home() {
 
       <div className="bg-[#FDF5EB] min-h-screen">
         {/* Bandeau de Présentation */}
-        <div className="bg-[#2A394A] text-white p-6 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Des formations 100% prises en charge et indemnisées
-          </h2>
-          <p className="text-lg">
-            Profitez de formations spécialisées dans le secteur médical pour vous perfectionner et bénéficier de la prise en charge totale des frais.
-          </p>
-        </div>
-
+        
         {/* Nouveau Carrousel Témoignages */}
         <div className="py-12 container mx-auto">
           <Swiper
