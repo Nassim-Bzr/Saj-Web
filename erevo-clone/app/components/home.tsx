@@ -127,7 +127,7 @@ export default function Home() {
         </div>
 
         <Testimonials />
-        <Trainings />
+      
 
         {/* Intégration du Chatbot */}
         <div
