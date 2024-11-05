@@ -6,6 +6,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import Navbar from "./navbar";
 import Testimonials from "./Testimonials";
 import Trainings from "./Trainings";
+import Design_sans_titre from "../../public/images/Design_sans_titre.png";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -57,28 +58,48 @@ export default function Home() {
         {/* Bandeau de Présentation */}
         
         {/* Nouveau Carrousel Témoignages */}
-        <div className="py-12 container mx-auto">
+        <div className="py-12 hcontainer mx-auto">
           <Swiper
             modules={[Pagination, Navigation]}
-            slidesPerView={1.5}
-            spaceBetween={20}
+            slidesPerView="auto"
+            initialSlide={1}
             centeredSlides={true}
             loop={true}
             navigation={true}
             pagination={{ clickable: true }}
-            className="h-[350px] w-full"
+            className="h-[550px] w-full"
+            breakpoints={{
+              320: {
+                slidesPerView: 1.2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 1.2,
+                spaceBetween: 30,
+              }
+            }}
           >
             {testimonials.map((testimonial, index) => (
-              <SwiperSlide key={index}>
-                <div className="flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-md h-full mx-4">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-16 h-16 rounded-full object-cover mb-4 shadow-sm"
-                  />
-                  <h3 className="text-xl font-bold text-gray-800">{testimonial.name}</h3>
-                  <p className="text-gray-500 mb-4">{testimonial.location}</p>
-                  <p className="text-gray-700 text-center">{testimonial.review}</p>
+              <SwiperSlide key={index} style={{ width: '80%' }}>
+                <div 
+                  className="flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-md mx-4 relative"
+                  style={{
+                    backgroundImage: `url(${Design_sans_titre.src})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    height: '600px'
+                  }}
+                >
+                  {/* Overlay semi-transparent */}
+                  <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+                  
+                  {/* Contenu avec z-index pour apparaître au-dessus de l'overlay */}
+                  <div className="relative z-10">
+                    <h3 className="text-xl font-bold text-white">{testimonial.name}</h3>
+                    <p className="text-gray-200 mb-4">{testimonial.location}</p>
+                    <p className="text-white text-center">{testimonial.review}</p>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}

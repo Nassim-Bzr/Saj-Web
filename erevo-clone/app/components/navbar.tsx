@@ -18,9 +18,7 @@ export default function Navbar() {
 
   const pathname = usePathname();
 
-  const isActive = (path: string) => {
-    return pathname === path ? "text-[#C97435]" : "text-gray-600";
-  };
+  
 
   return (
     <nav className="bg-[#2A394A] text-[#C97435] shadow-md sticky top-0 z-50 font-rubik">
@@ -82,7 +80,7 @@ export default function Navbar() {
 
             <Link 
               href="/qui-sommes-nous" 
-              className={`${isActive('/qui-sommes-nous')} hover:text-[#C97435] transition-colors text-[#C97536] duration-200`}
+              className={`hover:text-white transition-colors duration-200 font-rubik font-medium text-sm uppercase tracking-wide`}
             >
               Qui sommes-nous
             </Link>
@@ -112,7 +110,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-6">
             <button 
               onClick={() => setShowInfoForm(true)}
-              className="px-4 py-2 bg-[#C97435] text-white hover:bg-[#A65E2A] rounded-md transition-colors duration-200"
+              className="px-4 py-2 bg-[#C97435] text-white hover:bg-[#A65E2A] rounded-full transition-colors duration-200"
             >
               Demande d'informations
             </button>
@@ -190,20 +188,20 @@ export default function Navbar() {
                     <input
                       type="text"
                       placeholder="Nom*"
-                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#C97435]"
                     />
                     <input
                       type="text"
                       placeholder="Prénom*"
-                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#C97435]"
                     />
                     <input
                       type="email"
                       placeholder="Email*"
-                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#C97435]"
                     />
                     <select
-                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#C97435]"
                     >
                       <option value="">Sélectionnez votre profession*</option>
                       <option>Médecin</option>
@@ -213,10 +211,10 @@ export default function Navbar() {
                     </select>
                     <input
                       type="date"
-                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#C97435]"
                     />
                     <select
-                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#C97435]"
                     >
                       <option value="">Sélectionnez un créneau horaire*</option>
                       <option>Matin (9h-12h)</option>
@@ -229,7 +227,7 @@ export default function Navbar() {
                     <textarea
                       placeholder="Votre message*"
                       rows={4}
-                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#C97435]"
                     ></textarea>
                   </div>
 
@@ -237,13 +235,13 @@ export default function Navbar() {
                     <button
                       type="button"
                       onClick={() => setShowInfoForm(false)}
-                      className="px-6 py-3 text-[#C97435] font-medium rounded-lg hover:bg-gray-100 transition duration-200"
+                      className="px-6 py-3 text-[#C97435] font-medium rounded-full hover:bg-gray-100 transition duration-200"
                     >
                       Annuler
                     </button>
                     <button
                       type="submit"
-                      className="px-6 py-3 bg-[#C97435] text-white font-medium rounded-lg hover:bg-[#A65E2A] transition duration-200"
+                      className="px-6 py-3 bg-[#C97435] text-white font-medium rounded-full hover:bg-[#A65E2A] transition duration-200"
                     >
                       Envoyer
                     </button>
@@ -296,3 +294,9 @@ export default function Navbar() {
     </nav>
   );
 }
+{/* Ajout de la classe text-[#C97435] pour rendre "Qui sommes-nous" orange comme les autres liens */}
+<style jsx>{`
+  .nav-link {
+    @apply text-[#C97435] hover:text-[#b8612a] transition-colors duration-200;
+  }
+`}</style>
