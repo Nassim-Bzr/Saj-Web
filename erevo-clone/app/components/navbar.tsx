@@ -14,6 +14,7 @@ import { useAuth } from '../contexts/AuthContext';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showInfoForm, setShowInfoForm] = useState(false);
 
   const pathname = usePathname();
 
@@ -107,25 +108,14 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Connexion et Contact */}
+          {/* Bouton demande d'informations */}
           <div className="hidden md:flex items-center space-x-6">
-            <div className="flex items-center gap-4">
-              <Link
-                href="/login"
-                className="px-4 py-2 text-[#C97435] hover:text-white hover:bg-[#3A495A] rounded-md transition-colors duration-200"
-              >
-                Connexion
-              </Link>
-              <Link
-                href="/register"
-                className="px-4 py-2 bg-[#C97435] text-white hover:bg-[#A65E2A] rounded-md transition-colors duration-200"
-              >
-                Inscription
-              </Link>
-            </div>
-            <a href="tel:0188555555" className="text-[#C97435] hover:text-white transition duration-200 font-rubik font-medium text-sm tracking-wide">
-              01 88 55 55 55
-            </a>
+            <button 
+              onClick={() => setShowInfoForm(true)}
+              className="px-4 py-2 bg-[#C97435] text-white hover:bg-[#A65E2A] rounded-md transition-colors duration-200"
+            >
+              Demande d'informations
+            </button>
           </div>
 
           {/* Menu burger pour mobile - reste inchangé */}
@@ -169,15 +159,139 @@ export default function Navbar() {
               >
                 FAQ
               </Link>
-              <button className="w-full bg-[#C97435] text-white font-medium py-2 px-4 rounded-full hover:bg-[#b8612a] transition duration-200 mt-4">
-                Se connecter
+              <button 
+                onClick={() => setShowInfoForm(true)}
+                className="w-full bg-[#C97435] text-white font-medium py-2 px-4 rounded-full hover:bg-[#b8612a] transition duration-200 mt-4"
+              >
+                Demande d'informations
               </button>
-              <a href="tel:0188555555" className="block px-3 py-2 text-base font-medium text-center hover:text-white mt-2">
-                01 88 55 55 55
-              </a>
             </div>
           </div>
         )}
+      {/* Bouton demande d'informations */}
+ 
+
+      {/* Modal formulaire */}
+      {showInfoForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="container mx-auto">
+            <div className="flex flex-col lg:flex-row bg-white rounded-2xl shadow-2xl overflow-hidden max-w-6xl mx-auto">
+              {/* Formulaire */}
+              <div className="w-full lg:w-2/3 p-8">
+                <div className="flex mb-6">
+                  <h1 className="font-bold text-3xl text-[#2A394A]">
+                    Demande d'informations<br />
+                    <span className="text-[#C97435] text-xl font-normal">Nous vous répondrons dans les plus brefs délais</span>
+                  </h1>
+                </div>
+
+                <form className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input
+                      type="text"
+                      placeholder="Nom*"
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Prénom*"
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                    />
+                    <input
+                      type="email"
+                      placeholder="Email*"
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                    />
+                    <select
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                    >
+                      <option value="">Sélectionnez votre profession*</option>
+                      <option>Médecin</option>
+                      <option>Infirmier</option>
+                      <option>Pharmacien</option>
+                      <option>Autre</option>
+                    </select>
+                    <input
+                      type="date"
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                    />
+                    <select
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                    >
+                      <option value="">Sélectionnez un créneau horaire*</option>
+                      <option>Matin (9h-12h)</option>
+                      <option>Après-midi (14h-17h)</option>
+                      <option>Soirée (17h-19h)</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-4">
+                    <textarea
+                      placeholder="Votre message*"
+                      rows={4}
+                      className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                    ></textarea>
+                  </div>
+
+                  <div className="flex justify-end space-x-4">
+                    <button
+                      type="button"
+                      onClick={() => setShowInfoForm(false)}
+                      className="px-6 py-3 text-[#C97435] font-medium rounded-lg hover:bg-gray-100 transition duration-200"
+                    >
+                      Annuler
+                    </button>
+                    <button
+                      type="submit"
+                      className="px-6 py-3 bg-[#C97435] text-white font-medium rounded-lg hover:bg-[#A65E2A] transition duration-200"
+                    >
+                      Envoyer
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              {/* Informations de contact */}
+              <div className="w-full lg:w-1/3 bg-[#2A394A] p-8 text-white">
+                <h2 className="text-2xl font-bold mb-6">Contactez-nous</h2>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <svg className="w-6 h-6 text-[#C97435]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <div>
+                      <h3 className="font-medium text-[#C97435]">Notre adresse</h3>
+                      <p className="text-gray-300">123 rue de la Formation<br />75000 Paris</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <svg className="w-6 h-6 text-[#C97435]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <div>
+                      <h3 className="font-medium text-[#C97435]">Email</h3>
+                      <p className="text-gray-300">contact@metadeal.fr</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <svg className="w-6 h-6 text-[#C97435]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <h3 className="font-medium text-[#C97435]">Horaires</h3>
+                      <p className="text-gray-300">Du lundi au vendredi<br />9h00 - 18h00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       </div>
     </nav>
   );
