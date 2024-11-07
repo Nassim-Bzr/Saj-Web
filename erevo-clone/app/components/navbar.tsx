@@ -84,7 +84,7 @@ export default function Navbar() {
               href="/qui-sommes-nous" 
               className={`hover:text-white transition-colors duration-200 font-rubik font-medium text-sm uppercase tracking-wide`}
             >
-              Qui sommes-nous?
+              Qui sommes-nous
             </Link>
             <Link 
               href="/faq" 

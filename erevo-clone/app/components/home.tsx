@@ -7,7 +7,9 @@ import Navbar from "./navbar";
 import Testimonials from "./Testimonials";
 import Trainings from "./Trainings";
 import Design_sans_titre from "../../public/images/Design_sans_titre.png";
-import Design_sans_titre_5 from "../../public/images/Design_sans_titre_5.png";
+import Design_sans_titre_5 from "../../public/images/formation_groupe_presentiel.png";
+import formation_groupe_presentiel from "../../public/images/formation_online_medcin.png";
+
 
 // Import Swiper styles
 import 'swiper/css';
@@ -19,29 +21,25 @@ export default function Home() {
 
   const images = [ 
     Design_sans_titre.src,
-    Design_sans_titre_5.src
+    Design_sans_titre_5.src,
+    formation_groupe_presentiel.src
   ]
 
 
 
   const testimonials = [
     {
-      name: "Dr Laetitia C.",
-      location: "Lyon (69)",
-      review: "Formation idéale. Je me sens bien mieux armée pour prendre en charge mes patientes.",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDsOHR3LlgQx5PQo3A&s"
+      name: "Les meilleures formations DPC en e-learning et presentiel pour les PS.",
+      review: "100% de prise en charge et indemnisées.",
+    
     },
     {
-      name: "Carla M.",
-      location: "Toulouse",
-      review: "Super plateforme, j'ai pu apprendre énormément de nouvelles choses.",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjgF5G4wF_cT2YXwkG&s"
+      name: "Un service client de qualité et à votre écoute. 7 jours sur 7.",
+      review: "Notre équipe de conseillers est disponible par telephone et par mail.",
     },
     {
-      name: "Jean L.",
-      location: "Paris",
-      review: "Merci pour cette formation, j'ai pu valider tous mes acquis sans stress.",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0u0v_C9TWX3vlvV8GQ&s"
+      name: "Méthodologie certifiée par l'ANDPC.",
+      review: "Nos formations sont conçues spécifiquement pour améliorer vos compétences sur des enjeux de santé publique.",
     }
   ];
 
@@ -76,11 +74,11 @@ export default function Home() {
             loop={true}
             navigation={true}
             pagination={{ clickable: true }}
-            className="h-[550px] w-full"
+            className="h-[400px] md:h-[550px] w-full"
             breakpoints={{
               320: {
-                slidesPerView: 1.2,
-                spaceBetween: 20,
+                slidesPerView: 1,
+                spaceBetween: 10,
               },
               768: {
                 slidesPerView: 1.2,
@@ -95,7 +93,7 @@ export default function Home() {
                 <div 
                   className="flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-md mx-4 relative"
                   style={{
-                    backgroundImage: `url(${Design_sans_titre_5.src})`,
+                    backgroundImage: `url(${images[index % images.length]})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
@@ -103,13 +101,21 @@ export default function Home() {
                   }}
                 >
                   {/* Overlay semi-transparent */}
-                  <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+                  <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex ml-[-10px]"></div>
                   
                   {/* Contenu avec z-index pour apparaître au-dessus de l'overlay */}
-                  <div className="relative z-10">
-                    <h3 className="text-xl font-bold text-white">{testimonial.name}</h3>
-                    <p className="text-gray-200 mb-4">{testimonial.location}</p>
-                    <p className="text-white text-center">{testimonial.review}</p>
+                  <div className="relative z-10 bg-white bg-opacity-60 p-4 md:p-8 flex flex-col 
+                    mx-auto md:mr-[-5em] 
+                    h-auto md:h-[300px] 
+                    w-[80%] md:w-[345px] 
+                    bottom-[1em] md:top-[5em] 
+                    right-[0em] md:right-[5em]
+                    items-center rounded-lg">
+                  
+                  <p className="text-2xl md:text-2xl font-bold mb-4 items-center text-black text-center tracking-wide">{testimonial.name}</p>
+                  <p className="text-lg md:text-xl font-medium mb-6 items-center text-black text-center tracking-wide">{testimonial.location}</p>
+
+                  <p className="text-base md:text-2xl  font-normal mb-8 items-center text-black text-center leading-relaxed ">{testimonial.review}</p>
                   </div>
                 </div>
               </SwiperSlide>
