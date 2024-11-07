@@ -7,6 +7,7 @@ import Navbar from "./navbar";
 import Testimonials from "./Testimonials";
 import Trainings from "./Trainings";
 import Design_sans_titre from "../../public/images/Design_sans_titre.png";
+import Design_sans_titre_5 from "../../public/images/Design_sans_titre_5.png";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -84,7 +85,7 @@ export default function Home() {
                 <div 
                   className="flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-md mx-4 relative"
                   style={{
-                    backgroundImage: `url(${Design_sans_titre.src})`,
+                    backgroundImage: `url(${Design_sans_titre_5.src})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',

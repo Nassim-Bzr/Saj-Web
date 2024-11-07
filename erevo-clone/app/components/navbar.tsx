@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
+import logo_MetaDeal from '../../public/images/logo_Metadeal2.png';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,14 +22,15 @@ export default function Navbar() {
   
 
   return (
-    <nav className="bg-[#2A394A] text-[#C97435] shadow-md sticky top-0 z-50 font-rubik">
+    <nav className="bg-[#2A394A] text-[#D8893F] shadow-md sticky top-0 z-50 font-rubik">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="text-2xl font-bold text-[#C97435] font-rubik tracking-tight">
-            <Link href="/">
-              METADEAL<span className="text-[#FF7E5F]">.</span>
-            </Link>
+          <div className="text-2xl font-bold flex text-[#D8893F] font-rubik tracking-tight">
+           <Link href="/">
+             
+            <img src={logo_MetaDeal.src} alt="Logo METADEAL" width={'350px'} height={'350px'}  className="ml-[-50px]"  />
+            </Link> 
           </div>
           {/* Menu de navigation - Desktop */}
           <div className="hidden md:flex items-center space-x-8">
@@ -36,7 +38,7 @@ export default function Navbar() {
               <NavigationMenuList className="bg-[#2A394A] group">
                 <NavigationMenuItem>
                   <NavigationMenuTrigger 
-                    className="bg-[#2A394A] text-[#C97435] font-rubik font-medium tracking-wide text-sm uppercase
+                    className="bg-[#2A394A] text-[#D8893F] font-rubik font-medium tracking-wide text-sm uppercase
                     hover:text-white hover:bg-[#3A495A] 
                     data-[state=open]:bg-[#3A495A] data-[state=open]:text-white 
                     duration-200 outline-none focus:outline-none
