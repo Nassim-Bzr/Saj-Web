@@ -16,6 +16,14 @@ import 'swiper/css/pagination';
 import FormationsGrid from "../FormationsGrid";
 
 export default function Home() {
+
+  const images = [ 
+    Design_sans_titre.src,
+    Design_sans_titre_5.src
+  ]
+
+
+
   const testimonials = [
     {
       name: "Dr Laetitia C.",
@@ -80,6 +88,8 @@ export default function Home() {
               }
             }}
           >
+
+
             {testimonials.map((testimonial, index) => (
               <SwiperSlide key={index} style={{ width: '80%' }}>
                 <div 
