@@ -6,42 +6,42 @@ import Footer from '@/app/components/footer';
 export default function QuiSommesNous() {
   const teamMembers = [
     {
-      name: "Dr. Sophie Laurent",
-      role: "Directrice & Fondatrice",
-      image: "/images/team/sophie-laurent.jpg",
-      description: "Médecin spécialiste avec 20 ans d'expérience dans la formation médicale continue."
+      name: "Dr. Emma Dupont",
+      role: "PDG & Fondatrice",
+      image: "https://via.placeholder.com/300x300?text=Emma+Dupont",
+      description: "Leader visionnaire avec une passion pour l'innovation dans l'éducation médicale."
     },
     {
-      name: "Dr. Thomas Dubois",
-      role: "Responsable Pédagogique",
-      image: "/images/team/thomas-dubois.jpg",
-      description: "Expert en ingénierie pédagogique et en formation médicale digitale."
+      name: "Dr. Lucas Martin",
+      role: "Directeur de l'apprentissage",
+      image: "https://via.placeholder.com/300x300?text=Lucas+Martin",
+      description: "Pionnier dans l'apprentissage numérique et les méthodologies de formation médicale."
     },
     // Ajoutez d'autres membres selon vos besoins
   ];
 
   const values = [
     {
-      title: "Excellence",
-      icon: "🎯",
-      description: "Nous nous engageons à fournir des formations de la plus haute qualité, basées sur les dernières avancées médicales."
+      title: "Intégrité",
+      icon: "🛡️",
+      description: "Nous respectons les normes les plus élevées d'intégrité dans toutes nos actions."
     },
     {
-      title: "Innovation",
-      icon: "💡",
-      description: "Nous développons constamment de nouvelles approches pédagogiques pour optimiser l'apprentissage."
-    },
-    {
-      title: "Proximité",
+      title: "Collaboration",
       icon: "🤝",
-      description: "Nous maintenons une relation étroite avec nos apprenants pour répondre au mieux à leurs besoins."
+      description: "Nous travaillons ensemble, au-delà des frontières, pour répondre aux besoins de nos clients."
+    },
+    {
+      title: "Passion",
+      icon: "🔥",
+      description: "Nous sommes engagés de cœur et d'esprit dans ce que nous faisons."
     }
   ];
 
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#FDF5EB] py-16">
+      <div className="min-h-screen bg-gradient-to-r from-[#FDF5EB] to-[#F0E5D8] py-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-8">
@@ -51,11 +51,11 @@ export default function QuiSommesNous() {
           </div>
 
           {/* Hero Section */}
-          <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-md overflow-hidden mb-12">
+          <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden mb-12 transform transition duration-500 hover:scale-105">
             <div className="relative h-96">
               <img
-                src={'https://www.fmfpro.org/wp-content/uploads/2021/11/arton2266.jpg'}
-                alt="Notre équipe"
+                src={'https://via.placeholder.com/1200x600?text=Notre+Équipe'}
+                alt="Notre Équipe"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 flex items-end">
@@ -93,7 +93,7 @@ export default function QuiSommesNous() {
             <h2 className="text-3xl font-bold text-[#2a394a] mb-8 text-center">Nos Valeurs</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {values.map((value, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+                <div key={index} className="bg-white p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
                   <div className="text-4xl mb-4">{value.icon}</div>
                   <h3 className="text-xl font-bold text-[#2a394a] mb-3">{value.title}</h3>
                   <p className="text-gray-700">{value.description}</p>
@@ -107,7 +107,7 @@ export default function QuiSommesNous() {
             <h2 className="text-3xl font-bold text-[#2a394a] mb-8 text-center">Notre Équipe</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {teamMembers.map((member, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
                   <div className="md:flex">
                     <div className="md:w-1/3">
                       <img
@@ -129,7 +129,7 @@ export default function QuiSommesNous() {
 
           {/* Call to Action */}
           <div className="max-w-6xl mx-auto mt-12 text-center">
-            <div className="bg-[#2a394a] text-white rounded-lg p-8">
+            <div className="bg-[#2a394a] text-white rounded-lg p-8 transform transition duration-500 hover:scale-105">
               <h2 className="text-2xl font-bold mb-4">
                 Envie de rejoindre l'aventure ?
               </h2>
