@@ -1,6 +1,6 @@
 "use client";
 import { notFound } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getFormationBySlug } from '@/app/lib/data/formations';
 import Navbar from '@/app/components/navbar';
 
@@ -11,11 +11,24 @@ interface PageProps {
 }
 
 export default function FormationPage({ params }: PageProps) {
-  const formation = getFormationBySlug(params.slug);
+  const [formation, setFormation] = useState<any | null>(null);
   const [showInfoForm, setShowInfoForm] = useState(false);
 
+  useEffect(() => {
+    const fetchFormation = async () => {
+      const data = getFormationBySlug(params.slug);
+      if (!data) {
+        notFound();
+      } else {
+        setFormation(data);
+      }
+    };
+
+    fetchFormation();
+  }, [params.slug]);
+
   if (!formation) {
-    notFound();
+    return null; // or a loading spinner
   }
 
   return (
