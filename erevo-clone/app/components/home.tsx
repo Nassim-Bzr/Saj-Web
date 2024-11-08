@@ -30,7 +30,7 @@ export default function Home() {
   const testimonials = [
     {
       name: "Les meilleures formations DPC en e-learning et presentiel pour les PS.",
-      review: "100% de prise en charge et indemnisées.",
+      review: "Suivez les formations recommandées par vos confrères.",
     
     },
     {
@@ -38,10 +38,31 @@ export default function Home() {
       review: "Notre équipe de conseillers est disponible par telephone et par mail.",
     },
     {
-      name: "Méthodologie certifiée par l'ANDPC.",
-      review: "Nos formations sont conçues spécifiquement pour améliorer vos compétences sur des enjeux de santé publique.",
+      name: "Choisissez votre organisme de formation agréé.",
+      review: ".",
     }
   ];
+
+  const TextCallToAction = [
+    {
+      title: "Formation 100% prise en charge et indemnisée jusqu'à 950€",
+      description: "Accédez à des formations conçues spécifiquement pour vous permettre de développer vos compétences, tout en offrant à vos patients une prise en charge optimale. Entièrement en ligne et accessibles en illimité, nos programmes sont 100% financés et peuvent même être indemnisés.",
+      button: "Je m'inscris"
+      
+    },
+    {
+      title: "95% de nos apprenants recommandent Metadeal",
+      description: "Avec une note moyenne de 4,7/5 sur plus de 500 avis.",
+      button: "Lire les avis"
+    },
+    {
+      title: "Un service client de qualité et à votre écoute. 7 jours sur 7.",
+      description: "Notre équipe de conseillers est disponible par telephone et par mail.",
+      button: "Contactez-nous"
+    }
+
+  ]
+  
 
   useEffect(() => {
     // Ajoute le script du chatbot une fois le composant monté
@@ -91,7 +112,7 @@ export default function Home() {
             {testimonials.map((testimonial, index) => (
               <SwiperSlide key={index} style={{ width: '80%' }}>
                 <div 
-                  className="flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-md mx-4 relative"
+                  className="flex flex-col justify-center items-center bg-white p-6 pb-12 rounded-lg shadow-md mx-4 relative"
                   style={{
                     backgroundImage: `url(${images[index % images.length]})`,
                     backgroundSize: 'cover',
@@ -102,7 +123,15 @@ export default function Home() {
                 >
                   {/* Overlay semi-transparent */}
                   <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex ml-[-10px]"></div>
-                  
+
+                  <div className="absolute left-8 top-8 z-20 flex flex-col items-start gap-4 max-w-sm">
+                    <h3 className="text-4xl font-bold py-12 relative flex bottom-[-200px] right-[-200px] text-white leading-tight">
+Formation 100% prise en charge et indemnisée jusqu'à <span className="text-[#D88941] font-bold flex relative bottom-[-90px]">950€</span>                  </h3>
+                    
+                  </div>
+                  <button className="bg-[#C97435] hover:bg-[#b8612a] px-6 py-3 flex relative bottom-[-300px] w-[350px] text-center items-center justify-center right-64 rounded-full text-white font-semibold transition duration-200 shadow-lg">
+                  ÊTES VOUS ELIGIBLE
+                      </button>
                   {/* Contenu avec z-index pour apparaître au-dessus de l'overlay */}
                   <div className="relative z-10 bg-white bg-opacity-60 p-4 md:p-8 flex flex-col 
                     mx-auto md:mr-[-5em] 
@@ -167,17 +196,7 @@ export default function Home() {
         <FormationsGrid />
         <Testimonials />
         {/* Intégration du Chatbot */}
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `
-            <chat-bot platform_id="909e3b89-45ce-4bef-89b3-adede8f2b19d" 
-              user_id="4a6ed246-8bed-477d-9fe6-6036f3084060" 
-              chatbot_id="441096f8-51ef-4eac-b5b5-7a188a5af4e3">
-              <a href="https://www.chatsimple.ai/?utm_source=widget&utm_medium=referral">chatsimple</a>
-            </chat-bot>
-            `,
-          }}
-        />
+      
       </div>
     </>
   );
