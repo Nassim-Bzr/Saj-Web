@@ -1,7 +1,6 @@
 "use client";
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import { getFormationById } from '@/app/lib/data/formations';
 import Navbar from '@/app/components/navbar';
 
 export default function FormationPage() {
@@ -10,17 +9,7 @@ export default function FormationPage() {
   const [formation, setFormation] = useState(null);
   const [showInfoForm, setShowInfoForm] = useState(false);
 
-  useEffect(() => {
-    if (id) {
-      const fetchedFormation = getFormationById(id);
-      console.log('Fetched Formation:', fetchedFormation);
-      setFormation(fetchedFormation);
-    }
-  }, [id]);
 
-  if (!formation) {
-    return <p>Formation non trouvée</p>;
-  }
 
   return (
     <div>
@@ -29,14 +18,12 @@ export default function FormationPage() {
         {/* Image de bannière */}
         <div className="bg-cover bg-center h-64" style={{ backgroundImage: 'url(/path/to/banner-image.jpg)' }}>
           <div className="bg-black bg-opacity-50 h-full flex items-center justify-center">
-            <h1 className="text-4xl font-bold text-white">{formation.title}</h1>
           </div>
         </div>
 
         {/* Contenu de la formation */}
         <div className="mt-8 p-6 bg-white shadow-lg rounded-lg">
           <h2 className="text-2xl font-semibold text-[#2A394A] mb-4">À propos de la formation</h2>
-          <p className="text-gray-700">{formation.description}</p>
         </div>
 
         {/* Bouton de demande d'informations */}

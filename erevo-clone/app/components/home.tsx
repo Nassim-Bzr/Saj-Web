@@ -113,7 +113,6 @@ export default function Home() {
                     items-center rounded-lg">
                   
                   <p className="text-2xl md:text-2xl font-bold mb-4 items-center text-black text-center tracking-wide">{testimonial.name}</p>
-                  <p className="text-lg md:text-xl font-medium mb-6 items-center text-black text-center tracking-wide">{testimonial.location}</p>
 
                   <p className="text-base md:text-2xl  font-normal mb-8 items-center text-black text-center leading-relaxed ">{testimonial.review}</p>
                   </div>
