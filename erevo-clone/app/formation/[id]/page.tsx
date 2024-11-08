@@ -21,7 +21,7 @@ export default function FormationPage() {
           </div>
         </div>
 
-        {/* Contenu de la formation */}
+        
         <div className="mt-8 p-6 bg-white shadow-lg rounded-lg">
           <h2 className="text-2xl font-semibold text-[#2A394A] mb-4">À propos de la formation</h2>
         </div>

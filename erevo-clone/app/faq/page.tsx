@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Navbar from '@/app/components/navbar';
 import Footer from '@/app/components/footer';
 import { useState } from 'react';
+import FormationSteps from '../components/FormationSteps';
 
 interface FAQItem {
   category: string;
@@ -157,6 +158,8 @@ export default function FAQ() {
           </div>
         </div>
       </div>
+      <FormationSteps />
+
       <Footer />
     </>
   );

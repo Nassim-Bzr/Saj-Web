@@ -17,12 +17,13 @@ export default function FormationsGrid() {
 
   return (
     <div className="container mx-auto py-8 px-4 mt-24 mb-16">
+        <h2 className="text-3xl text-[#D88941] text-center text-6xl pb-16 font-bold text-white mb-2">Choisissez votre formation</h2>
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
         {formations.map((formation, index) => (
           <Link 
             href={`/formations/${formation.slug}`} 
             key={index}
-            className="flex items-center justify-center"
+            className="flex items-center p-2 justify-center"
           >
             <div
               className={`${formation.color} flex flex-col items-center justify-center w-full aspect-square rounded-full shadow-md text-white text-center 

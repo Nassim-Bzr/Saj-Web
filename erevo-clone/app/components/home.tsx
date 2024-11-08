@@ -3,9 +3,9 @@
 import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from 'swiper/modules';
-import Navbar from "./navbar";
+import FormationSteps from "./FormationSteps";
 import Testimonials from "./Testimonials";
-import Trainings from "./Trainings";
+
 import Design_sans_titre from "../../public/images/Design_sans_titre.png";
 import Design_sans_titre_5 from "../../public/images/formation_groupe_presentiel.png";
 import formation_groupe_presentiel from "../../public/images/formation_online_medcin.png";
@@ -62,9 +62,9 @@ export default function Home() {
     <>
 
       <div className="bg-[#FDF5EB] min-h-screen">
-        {/* Bandeau de Présentation */}
+
         
-        {/* Nouveau Carrousel Témoignages */}
+
         <div className="py-12 hcontainer mx-auto">
           <Swiper
             modules={[Pagination, Navigation]}
@@ -166,7 +166,6 @@ export default function Home() {
 
         <FormationsGrid />
         <Testimonials />
-
         {/* Intégration du Chatbot */}
         <div
           dangerouslySetInnerHTML={{
