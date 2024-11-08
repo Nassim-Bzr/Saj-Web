@@ -34,12 +34,12 @@ export default function Home() {
     
     },
     {
-      name: "Un service client de qualité et à votre écoute. 7 jours sur 7.",
+      name: "Un service client de qualité et à votre écoute. 7 j / 7.",
       review: "Notre équipe de conseillers est disponible par telephone et par mail.",
     },
     {
       name: "Choisissez votre organisme de formation agréé.",
-      review: ".",
+      review: "Choisissez parmis les formations les plus recommandées dispensées par des experts.",
     }
   ];
 
@@ -125,7 +125,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex ml-[-10px]"></div>
 
                   <div className="absolute left-8 top-8 z-20 flex flex-col items-start gap-4 max-w-sm">
-                    <h3 className="text-4xl font-bold py-12 relative flex bottom-[-200px] right-[-200px] text-white leading-tight">
+                    <h3 className="text-4xl font-bold py-12 relative flex bottom-[-190px] right-[-200px] text-white leading-tight">
 Formation 100% prise en charge et indemnisée jusqu'à <span className="text-[#D88941] font-bold flex relative bottom-[-90px]">950€</span>                  </h3>
                     
                   </div>
