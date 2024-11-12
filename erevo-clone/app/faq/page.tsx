@@ -63,6 +63,8 @@ export default function FAQ() {
     }
   ];
 
+
+
   const toggleQuestion = (questionId: string) => {
     const newOpenQuestions = new Set(openQuestions);
     if (newOpenQuestions.has(questionId)) {
@@ -76,7 +78,12 @@ export default function FAQ() {
   return (
     <>
       <Navbar />
+
+
       <div className="min-h-screen bg-[#FDF5EB] py-16">
+        <h1 className="text-5xl font-bold text-[#2a394a] mb-4 leading-tight">
+          Questions Fréquentes
+        </h1>
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <div className="max-w-4xl mx-auto mb-8">
@@ -158,7 +165,7 @@ export default function FAQ() {
           </div>
         </div>
       </div>
-      <FormationSteps />
+   
 
       <Footer />
     </>

@@ -49,10 +49,10 @@ export default function FormationsPage() {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 py-12">
+        <div className="container pb-16 mx-auto px-4 py-12">
           {/* Section filtres précédente */}
           <h3 className="text-xl font-semibold text-[#2A394A] mb-4">Filtrer les formations</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid pb-[8em] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
               {/* Barre de recherche */}
               <div className="col-span-full">
@@ -173,7 +173,7 @@ export default function FormationsPage() {
                 </button>
               </div>
             </div>
-          {/* Liste des formations par catégorie */}
+
           {formationsData.map((category, index) => (
             <div key={index} className="mb-16">
               <div className="flex items-center mb-8">
@@ -182,6 +182,9 @@ export default function FormationsPage() {
                   <h2 className="text-3xl font-bold text-[#2A394A]">
                     {category.title}
                   </h2>
+                  <Link href={`/formations/${category.slug.toLowerCase().replace(/ /g, '-')}`} className="text-xl flex absolute right-5 text-[#C97435] hover:underline">
+                    Catalogue de formations {category.title}
+                  </Link>
                   <p className="text-gray-600 mt-1">{category.description}</p>
                 </div>
               </div>
@@ -240,9 +243,8 @@ export default function FormationsPage() {
                           ))}
                         </div>
                       </div>
-
                       <Link 
-                        href={`/formation/${formation.title.toLowerCase().replace(/ /g, '-')}`}
+                        href={`/formations/${selectedSpecialty}/${formation.slug.toLowerCase().replace(/ /g, '-')}`}
                         className="mt-6 block w-full bg-[#C97435] text-white py-3 rounded-lg text-center hover:bg-[#A65E2A] transition-colors duration-200"
                       >
                         En savoir plus

@@ -127,7 +127,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
 
                 <div className="absolute md:left-20 sm:left-8 top-4 sm:top-8 z-20 flex flex-col items-start   gap-4 w-full max-w-sm">
-                  <h3 className="text-2xl md:hidden sm:text-3xl md:text-4xl font-bold py-6 sm:py-12 text-white leading-tight md:relative md:bottom-[-190px] md:right-[-200px]">
+                  <h3 className="text-2xl hidden left-[-1em] top-[1em] md:block sm:text-3xl md:text-4xl font-bold py-6 sm:py-12 text-white leading-tight md:relative md:bottom-[-190px] md:right-[-200px]">
                     {testimonials[0].text}
                   </h3>
                 </div>
@@ -161,8 +161,8 @@ export default function Home() {
               >
                 <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
 
-                <div className="absolute left-4 sm:left-8 top-4 sm:top-8 z-20 flex flex-col items-start gap-4 w-full max-w-sm">
-                  <h3 className="text-2xl hidden sm:text-3xl md:text-4xl font-bold py-6 sm:py-12 text-white leading-tight md:relative md:bottom-[-190px] md:right-[-200px]">
+                <div className="absolute left-[8em] sm:left-8 top-4 sm:top-8 z-20 flex flex-col items-start gap-4 w-full max-w-sm">
+                  <h3 className="text-2xl hidden md:block left-[-0em] top-0  sm:text-3xl md:text-4xl font-bold py-6 sm:py-12 text-white leading-tight md:relative md:bottom-[-190px] md:right-[-200px]">
                     {testimonials[1].text}
                   </h3>
                 </div>
@@ -193,7 +193,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
 
                 <div className="absolute left-4 sm:left-8 top-4 sm:top-8 z-20 flex flex-col items-start gap-4 w-full max-w-sm">
-                  <h3 className="text-2xl hidden sm:text-3xl md:text-4xl font-bold py-6 sm:py-12 text-white leading-tight">
+                  <h3 className="text-2xl hidden md:block  sm:text-3xl md:text-4xl font-bold py-6 sm:py-12 text-white leading-tight">
                     {testimonials[2].text}
                   </h3>
                 </div>
