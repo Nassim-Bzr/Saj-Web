@@ -62,7 +62,6 @@ export default function QuiSommesNous() {
       image: "https://thispersondoesnotexist.com/",
       description: "Expert en développement de programmes DPC"
     },
-    
   ];
 
   return (

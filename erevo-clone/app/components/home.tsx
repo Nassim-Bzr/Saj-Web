@@ -87,158 +87,140 @@ export default function Home() {
 
   return (
     <>
-
       <div className="bg-[#FDF5EB] min-h-screen">
-
-
-
-        <div className="py-12 hcontainer mx-auto">
+        <div className="py-12 hcontainer mx-auto px-4">
           <Swiper
             modules={[Pagination, Navigation]}
-            slidesPerView={1.5} // Change de "auto" à une valeur numérique (1.5 est un bon choix pour la preview)
+            slidesPerView={1}
             initialSlide={1}
             centeredSlides={true}
             loop={true}
             navigation={true}
             pagination={{ clickable: true }}
-            className="h-[400px] md:h-[550px] w-full"
+            className="h-[400px] sm:h-[500px] md:h-[550px] w-full"
             breakpoints={{
               320: {
-                slidesPerView: 1.2, // Ajuste pour avoir un peu de prévisualisation
+                slidesPerView: 1,
                 spaceBetween: 10,
               },
+              640: {
+                slidesPerView: 1.2,
+                spaceBetween: 20,
+              },
               768: {
-                slidesPerView: 1.5, // Garde une bonne preview sur les plus grands écrans
+                slidesPerView: 1.5,
                 spaceBetween: 30,
               }
             }}
           >
-
-
-
-            <SwiperSlide style={{ width: '80%' }}>
+            <SwiperSlide className="w-full sm:w-[90%] md:w-[80%]">
               <div
-                className="flex flex-col justify-center items-center bg-white p-6 pb-12 rounded-lg shadow-md mx-4 relative"
+                className="flex flex-col justify-center items-center bg-white p-4 sm:p-6 pb-8 sm:pb-12 rounded-lg shadow-md mx-2 sm:mx-4 relative"
                 style={{
                   backgroundImage: `url(${testimonials[0].image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
-                  height: '600px'
+                  height: '100%'
                 }}
               >
-                {/* Overlay semi-transparent */}
-                <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex ml-[-10px]"></div>
+                <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
 
-                <div className="absolute left-8 top-8 z-20 flex flex-col items-start gap-4 max-w-sm">
-                  <h3 className="text-4xl font-bold py-12 relative flex bottom-[-190px] right-[-200px] text-white leading-tight">
+                <div className="absolute md:left-20 sm:left-8 top-4 sm:top-8 z-20 flex flex-col items-start   gap-4 w-full max-w-sm">
+                  <h3 className="text-2xl md:hidden sm:text-3xl md:text-4xl font-bold py-6 sm:py-12 text-white leading-tight md:relative md:bottom-[-190px] md:right-[-200px]">
                     {testimonials[0].text}
                   </h3>
                 </div>
-                <button className="bg-[#C97435] hover:bg-[#b8612a] px-6 py-3 flex relative bottom-[-300px] left-[-100px] w-[350px] text-center items-center justify-center right-64 rounded-full text-white font-semibold transition duration-200 shadow-lg">
-                  ÊTES VOUS ELIGIBLE
+
+                <button className="bg-[#C97435] hover:bg-[#b8612a] text-lg sm:text-2xl text-sm px-4 sm:px-6 py-2 sm:py-3 absolute bottom-8 sm:bottom-16 left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[350px] text-center rounded-full text-white font-semibold transition duration-200 shadow-lg">
+                  Je vérifie mon éligibilité
                 </button>
-                {/* Contenu avec z-index pour apparaître au-dessus de l'overlay */}
-                <div className="relative z-10 bg-white bg-opacity-60 p-4 md:p-8 flex flex-col 
-                    mx-auto md:mr-[-5em] 
-                    h-auto md:h-[300px] 
-                    w-[80%] md:w-[345px] 
-                    bottom-[1em] md:top-[5em] 
-                    right-[0em] md:right-[5em]
+
+                <div className="absolute z-10 bg-white bg-opacity-60 p-4 sm:p-8 flex flex-col 
+                    w-[90%] sm:w-[80%] md:w-[345px] 
+                    h-auto md:h-[300px]
+                    bottom-24 sm:bottom-32 md:top-[5em]
+                    right-[5%] sm:right-[10%] md:right-[5em]
                     items-center rounded-lg">
-
-                  <p className="text-2xl md:text-2xl font-bold mb-4 items-center text-black text-center tracking-wide">{testimonials[0].name}</p>
-
-                  <p className="text-base md:text-2xl  font-normal mb-8 items-center text-black text-center leading-relaxed ">{testimonials[0].review}</p>
+                  <p className="text-xl sm:text-2xl font-bold mb-4 text-black text-center tracking-wide">{testimonials[0].name}</p>
+                  <p className="text-base sm:text-xl md:text-2xl font-normal mb-8 text-black text-center leading-relaxed">{testimonials[0].review}</p>
                 </div>
               </div>
             </SwiperSlide>
 
-            <SwiperSlide style={{ width: '80%' }}>
+            <SwiperSlide className="w-full sm:w-[90%] md:w-[80%]">
               <div
-                className="flex flex-col justify-center items-center bg-white p-6 pb-12 rounded-lg shadow-md mx-4 relative"
+                className="flex flex-col justify-center items-center bg-white p-4 sm:p-6 pb-8 sm:pb-12 rounded-lg shadow-md mx-2 sm:mx-4 relative"
                 style={{
                   backgroundImage: `url(${testimonials[1].image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
-                  height: '600px'
+                  height: '100%'
                 }}
               >
-                {/* Overlay semi-transparent */}
-                <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex ml-[-10px]"></div>
+                <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
 
-                <div className="absolute left-[-120px]  top-[-180px] z-20 flex flex-col items-start gap-4 max-w-[20em]">
-                  <h3 className="text-4xl font-bold py-12 relative flex bottom-[-190px] right-[-200px] text-white leading-tight">
+                <div className="absolute left-4 sm:left-8 top-4 sm:top-8 z-20 flex flex-col items-start gap-4 w-full max-w-sm">
+                  <h3 className="text-2xl hidden sm:text-3xl md:text-4xl font-bold py-6 sm:py-12 text-white leading-tight md:relative md:bottom-[-190px] md:right-[-200px]">
                     {testimonials[1].text}
                   </h3>
                 </div>
 
-                {/* Contenu avec z-index pour apparaître au-dessus de l'overlay */}
-                <div className="relative z-10 bg-white bg-opacity-60 p-4 md:p-8 flex flex-col 
-                    mx-auto md:mr-[-5em] 
-                    h-auto md:h-[300px] 
-                    w-[80%] md:w-[345px] 
-                    bottom-[1em] md:top-[5em] 
-                    right-[0em] md:right-[5em]
+                <div className="absolute z-10 bg-white bg-opacity-60 p-4 sm:p-8 flex flex-col 
+                    w-[90%] sm:w-[80%] md:w-[345px]
+                    h-auto md:h-[300px]
+                    bottom-24 sm:bottom-32 md:top-[5em]
+                    right-[5%] sm:right-[10%] md:right-[5em]
                     items-center rounded-lg">
-
-                  <p className="text-2xl md:text-2xl font-bold mb-4 items-center text-black text-center tracking-wide">{testimonials[1].name}</p>
-
-                  <p className="text-base md:text-2xl  font-normal mb-8 items-center text-black text-center leading-relaxed ">{testimonials[1].review}</p>
+                  <p className="text-xl sm:text-2xl font-bold mb-4 text-black text-center tracking-wide">{testimonials[1].name}</p>
+                  <p className="text-base sm:text-xl md:text-2xl font-normal mb-8 text-black text-center leading-relaxed">{testimonials[1].review}</p>
                 </div>
               </div>
             </SwiperSlide>
 
-            <SwiperSlide style={{ width: '80%' }}>
+            <SwiperSlide className="w-full sm:w-[90%] md:w-[80%]">
               <div
-                className="flex flex-col justify-center items-center bg-white p-6 pb-12 rounded-lg shadow-md mx-4 relative"
+                className="flex flex-col justify-center items-center bg-white p-4 sm:p-6 pb-8 sm:pb-12 rounded-lg shadow-md mx-2 sm:mx-4 relative"
                 style={{
                   backgroundImage: `url(${testimonials[2].image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
-                  height: '600px'
+                  height: '100%'
                 }}
               >
-                {/* Overlay semi-transparent */}
-                <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex ml-[-10px]"></div>
+                <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
 
-                <div className="absolute  left-8 top-8 z-20 flex flex-col items-start max-w-sm  ">
-                  <h3 className="text-4xl font-bold py-12  w-full  text-white leading-tight">
+                <div className="absolute left-4 sm:left-8 top-4 sm:top-8 z-20 flex flex-col items-start gap-4 w-full max-w-sm">
+                  <h3 className="text-2xl hidden sm:text-3xl md:text-4xl font-bold py-6 sm:py-12 text-white leading-tight">
                     {testimonials[2].text}
                   </h3>
                 </div>
 
-                {/* Contenu avec z-index pour apparaître au-dessus de l'overlay */}
-                <div className="relative z-10 bg-white bg-opacity-60 p-4 md:p-8 flex flex-col 
-                    mx-auto md:mr-[-5em] 
-                    h-auto md:h-[300px] 
-                    w-[80%] md:w-[345px] 
-                    bottom-[1em] md:top-[5em] 
-                    right-[0em] md:right-[5em]
+                <div className="absolute z-10 bg-white bg-opacity-60 p-4 sm:p-8 flex flex-col 
+                    w-[90%] sm:w-[80%] md:w-[345px]
+                    h-auto md:h-[300px]
+                    bottom-24 sm:bottom-32 md:top-[5em]
+                    right-[5%] sm:right-[10%] md:right-[5em]
                     items-center rounded-lg">
-
-                  <p className="text-2xl md:text-2xl font-bold mb-4 items-center text-black text-center tracking-wide">{testimonials[2].name}</p>
-
-                  <p className="text-base md:text-2xl  font-normal mb-8 items-center text-black text-center leading-relaxed ">{testimonials[2].review}</p>
+                  <p className="text-xl sm:text-2xl font-bold mb-4 text-black text-center tracking-wide">{testimonials[2].name}</p>
+                  <p className="text-base sm:text-xl md:text-2xl font-normal mb-8 text-black text-center leading-relaxed">{testimonials[2].review}</p>
                 </div>
               </div>
             </SwiperSlide>
           </Swiper>
         </div>
 
-        {/* Reste de votre contenu... */}
-        <div className="container mx-auto flex flex-col md:flex-row items-center p-6">
-          {/* Section de Gauche - Texte d'Introduction */}
-          <div className="flex-1 text-center md:text-left mb-6 md:mb-0">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+        <div className="container mx-auto flex flex-col md:flex-row items-center p-4 sm:p-6 gap-6">
+          <div className="flex-1 text-center md:text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 sm:mb-6">
               Des formations innovantes, gratuites et accessibles en vidéo pour améliorer vos compétences
             </h1>
-            <p className="text-lg text-gray-600 mb-6">
+            <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
               Accédez à des formations conçues spécifiquement pour vous permettre de développer vos compétences, tout en offrant à vos patients une prise en charge optimale. Entièrement en ligne et accessibles en illimité, nos programmes sont <span className="font-bold">100% financés</span> et peuvent même être indemnisés.
             </p>
-            <p className="text-gray-600 font-medium">
+            <p className="text-gray-600 font-medium mb-2">
               Une satisfaction approuvée
             </p>
             <p className="text-gray-600">
@@ -246,20 +228,19 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Section de Droite - Formulaire d'Inscription */}
-          <div className="flex-1 mt-10 md:mt-0 md:ml-10 p-6 bg-[#2A394A] rounded-lg shadow-lg text-white">
-            <h2 className="text-2xl font-bold mb-4">Je souhaite me former !</h2>
+          <div className="flex-1 w-full md:w-auto mt-6 md:mt-0 md:ml-10 p-4 sm:p-6 bg-[#2A394A] rounded-lg shadow-lg text-white">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4">Je souhaite me former !</h2>
             <div className="mb-4">
               <label className="block text-sm font-bold mb-2" htmlFor="profession">
                 Votre profession
               </label>
-              <select id="profession" className="w-full p-3 border rounded-lg text-black">
+              <select id="profession" className="w-full p-2 sm:p-3 border rounded-lg text-black">
                 <option value="medecin">Médecin</option>
                 <option value="infirmier">Infirmier</option>
                 <option value="pharmacien">Pharmacien</option>
               </select>
             </div>
-            <button className="w-full bg-[#C97435] text-white font-bold py-3 rounded-lg hover:bg-[#b8612a] transition duration-200">
+            <button className="w-full bg-[#C97435] text-white font-bold py-2 sm:py-3 rounded-lg hover:bg-[#b8612a] transition duration-200">
               Je m'inscris
             </button>
             <p className="text-sm mt-4">
@@ -273,15 +254,13 @@ export default function Home() {
         <FormationsGrid />
         <Testimonials />
 
-        {/* Section Contact */}
-        <div className="py-20 bg-white">
+        <div className="py-10 sm:py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="flex flex-col lg:flex-row bg-[#2A394A] rounded-2xl shadow-2xl overflow-hidden">
-                {/* Formulaire */}
-                <div className="w-full lg:w-2/3 p-8 lg:p-12">
-                  <div className="mb-8">
-                    <h2 className="text-3xl font-bold text-white mb-2">
+                <div className="w-full lg:w-2/3 p-6 sm:p-8 lg:p-12">
+                  <div className="mb-6 sm:mb-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                       Contactez-nous
                     </h2>
                     <p className="text-gray-300">
@@ -289,15 +268,15 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <form className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <form className="space-y-4 sm:space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                       <div>
                         <label className="block text-white text-sm font-medium mb-2">
                           Nom*
                         </label>
                         <input
                           type="text"
-                          className="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-[#C97435] transition-colors"
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-[#C97435] transition-colors"
                           placeholder="Votre nom"
                         />
                       </div>
@@ -307,20 +286,20 @@ export default function Home() {
                         </label>
                         <input
                           type="text"
-                          className="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-[#C97435] transition-colors"
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-[#C97435] transition-colors"
                           placeholder="Votre prénom"
                         />
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                       <div>
                         <label className="block text-white text-sm font-medium mb-2">
                           Email*
                         </label>
                         <input
                           type="email"
-                          className="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-[#C97435] transition-colors"
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-[#C97435] transition-colors"
                           placeholder="votre@email.com"
                         />
                       </div>
@@ -330,7 +309,7 @@ export default function Home() {
                         </label>
                         <input
                           type="tel"
-                          className="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-[#C97435] transition-colors"
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-[#C97435] transition-colors"
                           placeholder="Votre numéro"
                         />
                       </div>
@@ -341,7 +320,7 @@ export default function Home() {
                         Profession*
                       </label>
                       <select
-                        className="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-[#C97435] transition-colors"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-[#C97435] transition-colors"
                       >
                         <option value="">Sélectionnez votre profession</option>
                         <option value="medecin">Médecin</option>
@@ -359,7 +338,7 @@ export default function Home() {
                       </label>
                       <textarea
                         rows={4}
-                        className="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-[#C97435] transition-colors"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-[#C97435] transition-colors"
                         placeholder="Votre message..."
                       ></textarea>
                     </div>
@@ -377,23 +356,22 @@ export default function Home() {
 
                     <button
                       type="submit"
-                      className="w-full bg-[#C97435] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#A65E2A] transition-colors duration-200"
+                      className="w-full bg-[#C97435] text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:bg-[#A65E2A] transition-colors duration-200"
                     >
                       Envoyer
                     </button>
                   </form>
                 </div>
 
-                {/* Informations de contact */}
-                <div className="w-full lg:w-1/3 bg-[#1F2937] p-8 lg:p-12">
-                  <h3 className="text-2xl font-bold text-white mb-8">
+                <div className="w-full lg:w-1/3 bg-[#1F2937] p-6 sm:p-8 lg:p-12">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">
                     Nos coordonnées
                   </h3>
                   
-                  <div className="space-y-8">
+                  <div className="space-y-6 sm:space-y-8">
                     <div className="flex items-start space-x-4">
                       <div className="text-[#C97435] mt-1">
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 sm:w-6 h-5 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
@@ -409,7 +387,7 @@ export default function Home() {
 
                     <div className="flex items-start space-x-4">
                       <div className="text-[#C97435] mt-1">
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 sm:w-6 h-5 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                       </div>
@@ -421,7 +399,7 @@ export default function Home() {
 
                     <div className="flex items-start space-x-4">
                       <div className="text-[#C97435] mt-1">
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 sm:w-6 h-5 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                       </div>
@@ -433,7 +411,7 @@ export default function Home() {
 
                     <div className="flex items-start space-x-4">
                       <div className="text-[#C97435] mt-1">
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 sm:w-6 h-5 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>

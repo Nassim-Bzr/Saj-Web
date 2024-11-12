@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 
 import React from 'react';
 import Navbar from '../components/navbar';
@@ -20,6 +20,7 @@ export default function FormationsPage() {
     <>
       <Navbar />
       <div className="min-h-screen bg-[#FDF5EB]">
+        
         {/* Hero Section améliorée */}
         <div className="bg-[#2A394A] text-white py-20">
           <div className="container mx-auto px-4">
@@ -50,7 +51,128 @@ export default function FormationsPage() {
 
         <div className="container mx-auto px-4 py-12">
           {/* Section filtres précédente */}
-          
+          <h3 className="text-xl font-semibold text-[#2A394A] mb-4">Filtrer les formations</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+              {/* Barre de recherche */}
+              <div className="col-span-full">
+                <input
+                  type="text"
+                  placeholder="Rechercher une formation..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                />
+              </div>
+
+              {/* Durée */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Durée
+                </label>
+                <select 
+                  value={selectedDuration}
+                  onChange={(e) => setSelectedDuration(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                >
+                  <option value="">Toutes les durées</option>
+                  <option value="7">7 heures</option>
+                  <option value="14">14 heures</option>
+                  <option value="21">21 heures</option>
+                  <option value="28">28 heures</option>
+                </select>
+              </div>
+
+              {/* Prise en charge */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Prise en charge
+                </label>
+                <select 
+                  value={selectedFunding}
+                  onChange={(e) => setSelectedFunding(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                >
+                  <option value="">Toutes les prises en charge</option>
+                  <option value="100">100% prise en charge</option>
+                  <option value="partial">Partiellement prise en charge</option>
+                  <option value="none">Non prise en charge</option>
+                </select>
+              </div>
+
+              {/* Spécialité */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Spécialité
+                </label>
+                <select 
+                  value={selectedSpecialty}
+                  onChange={(e) => setSelectedSpecialty(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                >
+                  <option value="">Toutes les spécialités</option>
+                  <option value="medecine-generale">Médecine Générale</option>
+                  <option value="medecine-interne">Médecine Interne</option>
+                  <option value="chirurgie">Chirurgie</option>
+                  <option value="pediatrie">Pédiatrie</option>
+                  <option value="gynecologie">Gynécologie</option>
+                  <option value="psychiatrie">Psychiatrie</option>
+                </select>
+              </div>
+
+              {/* Format */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Format
+                </label>
+                <select 
+                  value={selectedFormat}
+                  onChange={(e) => setSelectedFormat(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                >
+                  <option value="">Tous les formats</option>
+                  <option value="PRESENTIEL">Présentiel</option>
+                  <option value="E-LEARNING">E-learning</option>
+                  <option value="HYBRIDE">Format hybride</option>
+                  <option value="DPC">DPC</option>
+                </select>
+              </div>
+
+              {/* Montant d'indemnité */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Montant d'indemnité
+                </label>
+                <select 
+                  value={selectedIndemnity}
+                  onChange={(e) => setSelectedIndemnity(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C97435]"
+                >
+                  <option value="">Toutes les indemnités</option>
+                  <option value="450">Jusqu'à 450€</option>
+                  <option value="730">Jusqu'à 730€</option>
+                  <option value="950">Jusqu'à 950€</option>
+                </select>
+              </div>
+              
+
+              {/* Bouton de réinitialisation des filtres */}
+              <div className="col-span-full flex justify-end">
+                <button
+                  onClick={() => {
+                    setSearchTerm('');
+                    setSelectedDuration('');
+                    setSelectedFunding('');
+                    setSelectedSpecialty('');
+                    setSelectedFormat('');
+                    setSelectedIndemnity('');
+                  }}
+                  className="px-4 py-2 text-[#C97435] hover:bg-[#FDF5EB] rounded-md transition-colors duration-200"
+                >
+                  Réinitialiser les filtres
+                </button>
+              </div>
+            </div>
           {/* Liste des formations par catégorie */}
           {formationsData.map((category, index) => (
             <div key={index} className="mb-16">

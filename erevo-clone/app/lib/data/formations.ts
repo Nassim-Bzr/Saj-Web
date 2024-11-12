@@ -43,6 +43,7 @@ export const formationsData = [
       }
     ]
   },
+  /*
   {
     title: "Cardiologie",
     icon: FaHeartbeat,
@@ -133,4 +134,5 @@ export const formationsData = [
       }
     ]
   }
+  */
 ];
