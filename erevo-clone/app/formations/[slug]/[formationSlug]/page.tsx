@@ -8,21 +8,24 @@ import { formationsData } from '../../../lib/data/formations';
 import Image from 'next/image';
 import FormationSteps from '../../../components/FormationSteps';
 
-export default function FormationDetailsPage({ 
-  params 
-}: { 
-  params: { slug: string; formationSlug: string } 
-}) {
-  // Trouver la catégorie
-  const category = formationsData.find(cat => cat.slug === params.slug);
-  if (!category) {
-    notFound();
-  }
+type Props = {
+  params: {
+    slug: string;
+    formationSlug: string;
+  };
+};
 
+export default function FormationPage({ params }: Props) {
+  const { slug, formationSlug } = params;
+  
+  // Trouver la catégorie correspondante
+  const category = formationsData.find(cat => cat.slug === slug);
+  
   // Trouver la formation spécifique
-  const formation = category.formations.find(f => f.slug === params.formationSlug);
+  const formation = category?.formations.find(f => f.slug === formationSlug);
+
   if (!formation) {
-    notFound();
+    return <div>Formation non trouvée</div>;
   }
 
   return (
