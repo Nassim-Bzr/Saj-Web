@@ -1,32 +1,27 @@
 "use client";
 
-import React from 'react';
 import { notFound } from 'next/navigation';
-import Navbar from '../../../components/navbar';
-import Footer from '../../../components/footer';
-import { formationsData } from '../../../lib/data/formations';
+import Navbar from '@/app/components/navbar';
+import Footer from '@/app/components/footer';
+import { formationsData } from '@/app/lib/data/formations';
 import Image from 'next/image';
-import FormationSteps from '../../../components/FormationSteps';
+import FormationSteps from '@/app/components/FormationSteps';
 
-type Props = {
-  params: {
-    slug: string;
-    formationSlug: string;
-  };
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
+export default function FormationDetailsPage({ 
+  params 
+}: { 
+  params: { slug: string; formationSlug: string } 
+}) {
+  // Trouver la catégorie
+  const category = formationsData.find(cat => cat.slug === params.slug);
+  if (!category) {
+    notFound();
+  }
 
-export default function FormationPage({ params }: Props) {
-  const { slug, formationSlug } = params;
-  
-  // Trouver la catégorie correspondante
-  const category = formationsData.find(cat => cat.slug === slug);
-  
   // Trouver la formation spécifique
-  const formation = category?.formations.find(f => f.slug === formationSlug);
-
+  const formation = category.formations.find(f => f.slug === params.formationSlug);
   if (!formation) {
-    return <div>Formation non trouvée</div>;
+    notFound();
   }
 
   return (
