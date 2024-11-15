@@ -17,10 +17,7 @@ const nextConfig = {
     config.resolve.fallback = { fs: false };
     return config;
   },
-  reactStrictMode: true,
-  experimental: {
-    reactRoot: true,
-  },
+  reactStrictMode: true
 }
 
 module.exports = nextConfig 

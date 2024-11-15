@@ -8,14 +8,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/app/components/footer';
 
-interface Props {
+type PageProps = {
   params: {
     slug: string;
   };
-  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default function FormationPage({ params }: Props) {
+export default function FormationPage({ params }: PageProps) {
   const [mounted, setMounted] = useState(false);
   const [showInfoForm, setShowInfoForm] = useState(false);
 
