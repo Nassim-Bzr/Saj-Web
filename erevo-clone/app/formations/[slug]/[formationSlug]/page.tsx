@@ -23,10 +23,6 @@ export default function FormationDetailsPage({ params }: PageProps) {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null;
-  }
-
   const formation = formationsData.find(category => category.slug === params.slug);
   const specificFormation = formation?.formations.find(
     f => f.slug.toLowerCase().replace(/ /g, '-') === params.formationSlug
@@ -34,6 +30,10 @@ export default function FormationDetailsPage({ params }: PageProps) {
 
   if (!formation || !specificFormation) {
     notFound();
+  }
+
+  if (!mounted) {
+    return null;
   }
 
   return (
