@@ -87,6 +87,12 @@ export default function Navbar() {
               Qui sommes-nous
             </Link>
             <Link 
+              href="/forum" 
+              className="hover:text-white font-rubik font-medium text-sm uppercase tracking-wide transition duration-200"
+            >
+              Forum
+            </Link>
+            <Link 
               href="/faq" 
               className="hover:text-white font-rubik font-medium text-sm uppercase tracking-wide transition duration-200"
             >
@@ -185,6 +191,12 @@ export default function Navbar() {
                 className="block px-3 py-2 text-base font-medium hover:text-white"
               >
                 Qui sommes-nous ?
+              </Link>
+              <Link 
+                href="/forum" 
+                className="block px-3 py-2 text-base font-medium hover:text-white"
+              >
+                Forum
               </Link>
               <Link 
                 href="/faq" 
