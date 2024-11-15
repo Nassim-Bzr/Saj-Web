@@ -1,3 +1,4 @@
+
 "use client";
 import { notFound } from 'next/navigation';
 import { useState } from 'react';
@@ -5,6 +6,7 @@ import Navbar from '@/app/components/navbar';
 import { formationsData } from '@/app/lib/data/formations';
 import Image from 'next/image';
 import Link from 'next/link';
+import Footer from '@/app/components/footer';
 
 export default function FormationPage({ params }: { params: { slug: string } }) {
   const [showInfoForm, setShowInfoForm] = useState(false);
@@ -109,6 +111,7 @@ export default function FormationPage({ params }: { params: { slug: string } }) 
           {/* Réutilisez le même formulaire de demande d'informations ici */}
         </div>
       )}
+      <Footer />
     </div>
   );
 } 

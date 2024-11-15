@@ -1,28 +1,24 @@
 "use client";
 
-import { notFound } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Navbar from '@/app/components/navbar';
 import Footer from '@/app/components/footer';
 import { formationsData } from '@/app/lib/data/formations';
 import Image from 'next/image';
 import FormationSteps from '@/app/components/FormationSteps';
 
-export default function FormationDetailsPage({ 
-  params 
-}: { 
-  params: { slug: string; formationSlug: string } 
-}) {
+export default function FormationDetailsPage() {
+  const params = useParams();
+  const slug = params.slug as string;
+  const formationSlug = params.formationSlug as string;
+
   // Trouver la catégorie
-  const category = formationsData.find(cat => cat.slug === params.slug);
-  if (!category) {
-    notFound();
-  }
+  const category = formationsData.find(cat => cat.slug === slug);
+  if (!category) return null;
 
   // Trouver la formation spécifique
-  const formation = category.formations.find(f => f.slug === params.formationSlug);
-  if (!formation) {
-    notFound();
-  }
+  const formation = category.formations.find(f => f.slug === formationSlug);
+  if (!formation) return null;
 
   return (
     <>
