@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import { FaSearch, FaComment, FaUser, FaTag } from 'react-icons/fa';
@@ -25,9 +25,18 @@ type Discussion = {
 };
 
 export default function ForumPage() {
+  const [mounted, setMounted] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isNewDiscussionOpen, setIsNewDiscussionOpen] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null; // ou un loader/skeleton
+  }
 
   // Données de test basées sur les formations
   const discussions: Discussion[] = [

@@ -1,25 +1,36 @@
 "use client";
+
+import { useEffect, useState } from 'react';
 import { notFound } from 'next/navigation';
-import { useState } from 'react';
 import Navbar from '@/app/components/navbar';
 import { formationsData } from '@/app/lib/data/formations';
 import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/app/components/footer';
 
-interface PageProps {
+interface Props {
   params: {
     slug: string;
   };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default function FormationPage({ params }: PageProps) {
+export default function FormationPage({ params }: Props) {
+  const [mounted, setMounted] = useState(false);
   const [showInfoForm, setShowInfoForm] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const formation = formationsData.find(category => category.slug === params.slug);
 
   if (!formation) {
     notFound();
+  }
+
+  if (!mounted) {
+    return null;
   }
 
   return (

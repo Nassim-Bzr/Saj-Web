@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
 interface NewDiscussionFormProps {
@@ -9,6 +9,7 @@ interface NewDiscussionFormProps {
 }
 
 export default function NewDiscussionForm({ isOpen, onClose }: NewDiscussionFormProps) {
+  const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     category: '',
@@ -16,14 +17,17 @@ export default function NewDiscussionForm({ isOpen, onClose }: NewDiscussionForm
     content: ''
   });
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Logique pour soumettre la nouvelle discussion
     console.log(formData);
     onClose();
   };
 
-  if (!isOpen) return null;
+  if (!mounted || !isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
