@@ -1,4 +1,3 @@
-
 "use client";
 import { notFound } from 'next/navigation';
 import { useState } from 'react';
@@ -8,7 +7,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/app/components/footer';
 
-export default function FormationPage({ params }: { params: { slug: string } }) {
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default function FormationPage({ params }: PageProps) {
   const [showInfoForm, setShowInfoForm] = useState(false);
 
   const formation = formationsData.find(category => category.slug === params.slug);

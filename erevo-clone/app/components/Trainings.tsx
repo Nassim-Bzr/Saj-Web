@@ -3,6 +3,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from 'swiper/modules';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -283,10 +284,12 @@ export default function Trainings() {
                 <Link href={`/formation/${index}`}>
                   <div className="relative bg-white rounded-lg shadow-md text-left h-full hover:shadow-xl transition-shadow duration-200">
                     <div className="relative">
-                      <img
+                      <Image
                         src={training.imageUrl}
                         alt={training.title}
                         className="rounded-t-lg h-48 w-full object-cover"
+                        width={500}
+                        height={300}
                       />
                       <span className="absolute top-2 left-2 bg-[#2a394a] text-white text-xs font-bold px-3 py-1 rounded-md">
                         {training.label}
