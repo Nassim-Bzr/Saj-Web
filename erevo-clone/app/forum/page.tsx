@@ -5,6 +5,7 @@ import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import { FaSearch, FaComment, FaUser, FaTag } from 'react-icons/fa';
 import Link from 'next/link';
+import NewDiscussionForm from '../components/NewDiscussionForm';
 
 // Types pour la gestion des discussions
 type Discussion = {
@@ -26,6 +27,7 @@ type Discussion = {
 export default function ForumPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [isNewDiscussionOpen, setIsNewDiscussionOpen] = useState(false);
 
   // Données de test basées sur les formations
   const discussions: Discussion[] = [
@@ -128,7 +130,7 @@ export default function ForumPage() {
                 <option value="formation">Formations</option>
               </select>
               <button
-                onClick={() => {/* Navigation vers nouvelle discussion */}}
+                onClick={() => setIsNewDiscussionOpen(true)}
                 className="bg-[#C97435] text-white px-6 py-2 rounded-full hover:bg-[#A65E2A] transition-colors duration-200"
               >
                 Nouvelle Discussion
@@ -184,6 +186,10 @@ export default function ForumPage() {
           </div>
         </div>
       </div>
+      <NewDiscussionForm 
+        isOpen={isNewDiscussionOpen}
+        onClose={() => setIsNewDiscussionOpen(false)}
+      />
       <Footer />
     </>
   );
