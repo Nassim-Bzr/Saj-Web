@@ -94,25 +94,38 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Searchbar */}
-          <div className="hidden md:flex items-center space-x-4 flex-1 max-w-md mx-8">
+          {/* Searchbar - Version desktop et tablette */}
+          <div className="hidden md:flex items-center space-x-4 flex-1 max-w-md mx-2 lg:mx-8">
             <div className="relative w-full">
               <input 
                 type="text" 
                 placeholder="Rechercher une formation" 
-                className="w-full border border-gray-300 rounded-md p-2 pl-4 pr-10 focus:outline-none focus:border-[#C97435] font-rubik text-sm"
+                className="w-full border border-gray-300 rounded-full py-2 px-4 pr-12 focus:outline-none focus:border-[#C97435] font-rubik text-sm"
               />
-              <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#C97435] text-white px-3 py-1 rounded-md hover:bg-[#b8612a] transition duration-200 text-sm font-rubik">
-                Rechercher
+              <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#C97435] hover:text-[#b8612a] transition duration-200">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="h-5 w-5" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
+                  />
+                </svg>
               </button>
             </div>
           </div>
 
           {/* Bouton demande d'informations */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:block">
             <button 
               onClick={() => setShowInfoForm(true)}
-              className="px-4 py-2 bg-[#C97435] text-white hover:bg-[#A65E2A] rounded-full transition-colors duration-200"
+              className="px-3 lg:px-4 py-2 bg-[#C97435] text-white hover:bg-[#A65E2A] rounded-full transition-colors duration-200 text-xs lg:text-sm whitespace-nowrap"
             >
               Demande d'informations
             </button>
@@ -135,12 +148,32 @@ export default function Navbar() {
         {/* Menu mobile - reste inchangé */}
         {isMenuOpen && (
           <div className="md:hidden py-4">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              <input
-                type="text"
-                placeholder="Rechercher une formation"
-                className="w-full border border-gray-300 rounded-md p-2 mb-4"
-              />
+            <div className="px-2 pt-2 pb-3 space-y-4">
+              {/* Barre de recherche - Version mobile */}
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Rechercher une formation"
+                  className="w-full border border-gray-300 rounded-full py-2 px-4 pr-12 text-sm"
+                />
+                <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#C97435]">
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-5 w-5" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
+                    />
+                  </svg>
+                </button>
+              </div>
+
               <Link 
                 href="/formations" 
                 className="block px-3 py-2 text-base font-medium hover:text-white"
@@ -161,7 +194,7 @@ export default function Navbar() {
               </Link>
               <button 
                 onClick={() => setShowInfoForm(true)}
-                className="w-full bg-[#C97435] text-white font-medium py-2 px-4 rounded-full hover:bg-[#b8612a] transition duration-200 mt-4"
+                className="w-full bg-[#C97435] text-white py-2 px-4 rounded-full hover:bg-[#A65E2A] transition duration-200 text-sm"
               >
                 Demande d'informations
               </button>

@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import React from 'react';
 import Navbar from '../components/navbar';
@@ -244,7 +244,7 @@ export default function FormationsPage() {
                         </div>
                       </div>
                       <Link 
-                        href={`/formations/${selectedSpecialty}/${formation.slug.toLowerCase().replace(/ /g, '-')}`}
+                        href={`/formations/${category.slug}/${formation.slug}`}
                         className="mt-6 block w-full bg-[#C97435] text-white py-3 rounded-lg text-center hover:bg-[#A65E2A] transition-colors duration-200"
                       >
                         En savoir plus
