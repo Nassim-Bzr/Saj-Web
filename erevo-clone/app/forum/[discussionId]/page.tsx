@@ -5,7 +5,6 @@ import { useParams } from 'next/navigation';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import { FaUser, FaCalendar, FaTag, FaEye, FaComment } from 'react-icons/fa';
-import { span } from 'framer-motion/client';
 
 // Définir les types
 type Comment = {
@@ -53,6 +52,60 @@ const discussionsData: DiscussionsData = {
         author: "Dr. Pierre",
         date: "2024-03-21",
         content: "Avez-vous abordé la partie sur les dermatoses professionnelles ?"
+      }
+    ]
+  },
+  '2': {
+    id: '2',
+    title: "Questions sur la formation Diabète de type 2",
+    author: "Dr. Dubois",
+    date: "2024-03-19",
+    category: "Médecine Générale",
+    tags: ["Diabétologie", "E-learning", "DPC"],
+    replies: 8,
+    views: 156,
+    content: "Je m'apprête à suivre la formation sur le diabète de type 2...",
+    comments: [
+      {
+        author: "Dr. Laurent",
+        date: "2024-03-20",
+        content: "J'ai suivi cette formation le mois dernier, la partie sur les nouvelles thérapeutiques est très complète."
+      }
+    ]
+  },
+  '3': {
+    id: '3',
+    title: "Retour sur la formation Implantologie avancée",
+    author: "Dr. Moreau",
+    date: "2024-03-18",
+    category: "Chirurgien-dentiste",
+    tags: ["Implantologie", "Présentiel", "DPC"],
+    replies: 12,
+    views: 189,
+    content: "Excellente formation en implantologie !...",
+    comments: [
+      {
+        author: "Dr. Garcia",
+        date: "2024-03-19",
+        content: "Je confirme, les TP sont vraiment bien organisés."
+      }
+    ]
+  },
+  '4': {
+    id: '4',
+    title: "Formation Soins palliatifs - Groupe d'échange",
+    author: "Inf. Bernard",
+    date: "2024-03-17",
+    category: "Infirmier",
+    tags: ["Soins palliatifs", "E-learning", "Retour d'expérience"],
+    replies: 20,
+    views: 278,
+    content: "Je propose de créer un groupe d'échange...",
+    comments: [
+      {
+        author: "Inf. Martinez",
+        date: "2024-03-18",
+        content: "Excellente initiative ! Je suis partante pour participer aux échanges."
       }
     ]
   }

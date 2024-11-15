@@ -13,6 +13,7 @@ type Props = {
     slug: string;
     formationSlug: string;
   };
+  searchParams?: { [key: string]: string | string[] | undefined };
 };
 
 export default function FormationPage({ params }: Props) {

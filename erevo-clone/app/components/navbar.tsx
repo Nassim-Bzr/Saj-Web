@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
-import logo_MetaDeal from '../../public/images/logo_Metadeal2.png';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,7 +29,12 @@ export default function Navbar() {
           <div className="text-2xl font-bold flex text-[#D8893F] font-rubik tracking-tight">
            <Link href="/">
              
-            <img src={logo_MetaDeal.src} alt="Logo METADEAL" width={'350px'} height={'350px'}  className="ml-[-50px]"  />
+            <Image 
+              src="/images/logo.png"
+              alt="Logo"
+              width={150}
+              height={50}
+            />
             </Link> 
           </div>
           {/* Menu de navigation - Desktop */}
