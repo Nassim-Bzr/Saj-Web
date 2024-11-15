@@ -1,20 +1,34 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import { formationsData } from '../lib/data/formations';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Formation, FormationDetail } from '../types';
+import FormationModal from '../components/FormationModal';
+
+interface SelectedFormation {
+  category: Formation;
+  formation: FormationDetail;
+}
 
 export default function FormationsPage() {
-  // Ajout des états pour les filtres
-  const [searchTerm, setSearchTerm] = React.useState('');
-  const [selectedDuration, setSelectedDuration] = React.useState('');
-  const [selectedFunding, setSelectedFunding] = React.useState('');
-  const [selectedSpecialty, setSelectedSpecialty] = React.useState('');
-  const [selectedFormat, setSelectedFormat] = React.useState('');
-  const [selectedIndemnity, setSelectedIndemnity] = React.useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedDuration, setSelectedDuration] = useState('');
+  const [selectedFunding, setSelectedFunding] = useState('');
+  const [selectedSpecialty, setSelectedSpecialty] = useState('');
+  const [selectedFormat, setSelectedFormat] = useState('');
+  const [selectedIndemnity, setSelectedIndemnity] = useState('');
+  const [selectedFormation, setSelectedFormation] = useState<SelectedFormation | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleFormationClick = (e: React.MouseEvent, category: Formation, formation: FormationDetail) => {
+    e.preventDefault();
+    setSelectedFormation({ category, formation });
+    setIsModalOpen(true);
+  };
 
   return (
     <>
@@ -191,7 +205,11 @@ export default function FormationsPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {category.formations.map((formation, fIndex) => (
-                  <div key={fIndex} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <div 
+                    key={fIndex} 
+                    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                    onClick={(e) => handleFormationClick(e, category, formation)}
+                  >
                     <div className="relative h-48">
                       <Image
                         src={formation.image}
@@ -243,12 +261,15 @@ export default function FormationsPage() {
                           ))}
                         </div>
                       </div>
-                      <Link 
-                        href={`/formations/${category.slug}/${formation.slug}`}
+                      <button 
                         className="mt-6 block w-full bg-[#C97435] text-white py-3 rounded-lg text-center hover:bg-[#A65E2A] transition-colors duration-200"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleFormationClick(e, category, formation);
+                        }}
                       >
                         En savoir plus
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -257,6 +278,17 @@ export default function FormationsPage() {
           ))}
         </div>
       </div>
+
+      {/* Modal pour afficher les détails de la formation */}
+      {isModalOpen && selectedFormation && (
+        <FormationModal
+          formation={selectedFormation.formation}
+          category={selectedFormation.category}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
+      
       <Footer />
     </>
   );

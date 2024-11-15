@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/app/components/footer';
 
-type PageProps = {
+interface PageProps {
   params: {
     slug: string;
   };
@@ -16,21 +16,20 @@ type PageProps = {
 
 export default function FormationPage({ params }: PageProps) {
   const [mounted, setMounted] = useState(false);
-  const [showInfoForm, setShowInfoForm] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const formation = formationsData.find(category => category.slug === params.slug);
+  const [formation, setFormation] = useState(formationsData.find(category => category.slug === params.slug));
 
-  if (!formation) {
-    notFound();
-  }
+  useEffect(() => {
+    const foundFormation = formationsData.find(category => category.slug === params.slug);
+    setFormation(foundFormation);
+  }, [params.slug]);
 
-  if (!mounted) {
-    return null;
-  }
+  if (!mounted) return null;
+  if (!formation) return notFound();
 
   return (
     <div>
@@ -121,11 +120,6 @@ export default function FormationPage({ params }: PageProps) {
           ))}
         </div>
       </div>
-      {showInfoForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          {/* Réutilisez le même formulaire de demande d'informations ici */}
-        </div>
-      )}
       <Footer />
     </div>
   );
