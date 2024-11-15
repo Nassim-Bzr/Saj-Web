@@ -28,12 +28,12 @@ export default function Navbar() {
           {/* Logo */}
           <div className="text-2xl font-bold flex text-[#D8893F] font-rubik tracking-tight">
            <Link href="/">
-             
             <Image 
-              src="/images/logo.png"
+              src="/images/logo_Metadeal2.png"
               alt="Logo"
               width={150}
               height={50}
+              priority
             />
             </Link> 
           </div>
