@@ -5,9 +5,34 @@ import { useParams } from 'next/navigation';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import { FaUser, FaCalendar, FaTag, FaEye, FaComment } from 'react-icons/fa';
+import { span } from 'framer-motion/client';
 
-// Données de test (à remplacer par une vraie API)
-const discussionsData = {
+// Définir les types
+type Comment = {
+  author: string;
+  date: string;
+  content: string;
+};
+
+type Discussion = {
+  id: string;
+  title: string;
+  author: string;
+  date: string;
+  category: string;
+  tags: string[];
+  replies: number;
+  views: number;
+  content: string;
+  comments: Comment[];
+};
+
+type DiscussionsData = {
+  [key: string]: Discussion;
+};
+
+// Données de test avec le type correct
+const discussionsData: DiscussionsData = {
   '1': {
     id: '1',
     title: "Retour d'expérience : Formation Manifestations dermatologiques",
@@ -17,7 +42,7 @@ const discussionsData = {
     tags: ["Formation", "Dermatologie", "DPC"],
     replies: 15,
     views: 234,
-    content: "J'ai récemment suivi la formation sur les manifestations dermatologiques. Je trouve que le contenu était très pertinent, notamment sur le diagnostic différentiel des lésions cutanées. Les cas cliniques présentés étaient très instructifs et représentatifs de notre pratique quotidienne. \n\nPoints forts de la formation :\n- Qualité des supports visuels\n- Interactivité avec les formateurs\n- Mise en pratique immédiate\n\nJe recommande vivement cette formation à tous les médecins généralistes qui souhaitent actualiser leurs connaissances en dermatologie.",
+    content: "J'ai récemment suivi la formation sur les manifestations dermatologiques...",
     comments: [
       {
         author: "Dr. Sophie",
@@ -30,8 +55,7 @@ const discussionsData = {
         content: "Avez-vous abordé la partie sur les dermatoses professionnelles ?"
       }
     ]
-  },
-  // ... autres discussions
+  }
 };
 
 export default function DiscussionPage() {

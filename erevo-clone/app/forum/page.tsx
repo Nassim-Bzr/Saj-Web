@@ -16,6 +16,7 @@ type Discussion = {
   tags: string[];
   replies: number;
   views: number;
+  content?: string;
   lastReply: {
     author: string;
     date: string;
@@ -26,23 +27,68 @@ export default function ForumPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  // Exemple de données (à remplacer par des vraies données de votre backend)
+  // Données de test basées sur les formations
   const discussions: Discussion[] = [
     {
       id: '1',
-      title: "Retour d'expérience : Formation en Médecine Générale",
+      title: "Retour d'expérience : Formation Manifestations dermatologiques",
       author: "Dr. Martin",
       date: "2024-03-20",
       category: "Médecine Générale",
-      tags: ["Formation", "Retour d'expérience", "DPC"],
+      tags: ["Formation", "Dermatologie", "DPC"],
       replies: 15,
       views: 234,
+      content: "J'ai récemment suivi la formation sur les manifestations dermatologiques. Je trouve que le contenu était très pertinent, notamment sur le diagnostic différentiel des lésions cutanées...",
       lastReply: {
         author: "Dr. Sophie",
         date: "2024-03-21"
       }
     },
-    // Ajoutez plus de discussions...
+    {
+      id: '2',
+      title: "Questions sur la formation Diabète de type 2",
+      author: "Dr. Dubois",
+      date: "2024-03-19",
+      category: "Médecine Générale",
+      tags: ["Diabétologie", "E-learning", "DPC"],
+      replies: 8,
+      views: 156,
+      content: "Je m'apprête à suivre la formation sur le diabète de type 2. Est-ce que des confrères l'ont déjà suivie ? Je voudrais notamment savoir si la partie sur les nouvelles thérapeutiques est bien développée.",
+      lastReply: {
+        author: "Dr. Laurent",
+        date: "2024-03-20"
+      }
+    },
+    {
+      id: '3',
+      title: "Retour sur la formation Implantologie avancée",
+      author: "Dr. Moreau",
+      date: "2024-03-18",
+      category: "Chirurgien-dentiste",
+      tags: ["Implantologie", "Présentiel", "DPC"],
+      replies: 12,
+      views: 189,
+      content: "Excellente formation en implantologie ! Les travaux pratiques étaient particulièrement enrichissants. Je recommande vivement à tous les confrères qui souhaitent se perfectionner.",
+      lastReply: {
+        author: "Dr. Garcia",
+        date: "2024-03-19"
+      }
+    },
+    {
+      id: '4',
+      title: "Formation Soins palliatifs - Groupe d'échange",
+      author: "Inf. Bernard",
+      date: "2024-03-17",
+      category: "Infirmier",
+      tags: ["Soins palliatifs", "E-learning", "Retour d'expérience"],
+      replies: 20,
+      views: 278,
+      content: "Je propose de créer un groupe d'échange pour ceux qui suivent actuellement la formation en soins palliatifs. Nous pourrions partager nos expériences et nos questionnements.",
+      lastReply: {
+        author: "Inf. Martinez",
+        date: "2024-03-18"
+      }
+    }
   ];
 
   return (
