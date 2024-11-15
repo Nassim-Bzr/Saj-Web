@@ -94,10 +94,10 @@ export default function FormationPage({ params }: { params: { slug: string } }) 
                 </div>
 
                 <Link 
-                  href={`/formations/${specificFormation.slug.toLowerCase().replace(/ /g, '-')}`}
+                  href={`/formations/${formation.slug}/${specificFormation.slug.toLowerCase().replace(/ /g, '-')}`}
                   className="mt-6 block w-full bg-[#C97435] text-white py-3 rounded-lg text-center hover:bg-[#A65E2A] transition-colors duration-200"
                 >
-                  En savoir plus
+                  En savoir pluss
                 </Link>
               </div>
             </div>
