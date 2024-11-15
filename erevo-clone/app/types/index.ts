@@ -1,20 +1,12 @@
-import { StaticImageData } from 'next/image';
-import { ReactNode } from 'react';
+// types.ts ou un fichier similaire
 
-export interface Formation {
-  title: string;
-  icon: ReactNode;
-  color: string;
-  slug: string;
-  image: string | StaticImageData;
-  description: string;
-  formations: FormationDetail[];
-}
+import { StaticImageData } from "next/image";
+import { IconType } from "react-icons";
 
 export interface FormationDetail {
   title: string;
   slug: string;
-  image: string | StaticImageData;
+  image: string; // Ou StaticImageData si nécessaire
   duration: string;
   price: string;
   funding: string;
@@ -22,4 +14,14 @@ export interface FormationDetail {
   tags: string[];
   shortDescription: string;
   nextSessions: string[];
-} 
+}
+
+export interface Formation {
+  title: string;
+  slug: string;
+  icon: IconType;
+  color: string;
+  description: string;
+  image?: StaticImageData; // Déclarez cette propriété comme optionnelle
+  formations: FormationDetail[];
+}
