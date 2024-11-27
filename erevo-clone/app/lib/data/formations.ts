@@ -3,6 +3,12 @@ import { FaClinicMedical, FaTooth, FaStethoscope, FaHandHoldingHeart,
 
 import GeneralistImg from '../../../public/images/generaliste.png'
 
+interface FormationDetail {
+  slug: string;
+  title: string;
+  // ... autres propriétés
+}
+
 export const formationsData = [
   {
     title: "Médecine Générale",

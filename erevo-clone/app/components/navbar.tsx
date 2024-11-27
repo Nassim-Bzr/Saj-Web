@@ -31,8 +31,8 @@ export default function Navbar() {
             <Image 
               src="/images/logo_Metadeal2.png"
               alt="Logo"
-              width={150}
-              height={50}
+              width={320}
+              height={150}
               priority
             />
             </Link> 

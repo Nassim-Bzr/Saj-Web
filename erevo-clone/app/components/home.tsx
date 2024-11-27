@@ -33,41 +33,25 @@ export default function Home() {
       name: "Les meilleures formations DPC en e-learning et presentiel pour les PS.",
       review: "Suivez les formations recommandées par vos confrères.",
       image: Design_sans_titre.src,
-      text: "Formation 100% prise en charge et indemnisée jusqu'à 950€"
+      text: "Formation 100% prise en charge et indemnisée jusqu'à 950€",
+      button: "Je vérifie mon éligibilité"
     },
     {
       name: "Un service client de qualité et à votre écoute. 7 j / 7.",
       review: "Notre équipe de conseillers est disponible par telephone et par mail.",
       image: Design_sans_titre_5.src,
-      text: "Choisissez parmi des thèmes variés, bénéficiez d'un suivi personnalisé, et accédez à des formations certifiées et de qualité."
+      text: "Choisissez parmi des thèmes variés, bénéficiez d'un suivi personnalisé, et accédez à des formations certifiées et de qualité.",
+      button: "Besoin d'aide ?"
     },
     {
       name: "Choisissez votre organisme de formation agréé.",
       review: "Choisissez parmis les formations les plus recommandées dispensées par des experts.",
       image: formation_groupe_presentiel.src,
-      text: "Optimisez votre développement professionnel, accédez aux meilleures formations certifiées "
+      text: "Optimisez votre développement professionnel, accédez aux meilleures formations certifiées ",
+      button: "Je m'inscriszz"
     }
   ];
 
-  const TextCallToAction = [
-    {
-      title: "Formation 100% prise en charge et indemnisée jusqu'à 950€",
-      description: "Accédez à des formations conçues spécifiquement pour vous permettre de développer vos compétences, tout en offrant à vos patients une prise en charge optimale. Entièrement en ligne et accessibles en illimité, nos programmes sont 100% financés et peuvent même être indemnisés.",
-      button: "Je m'inscris"
-
-    },
-    {
-      title: "95% de nos apprenants recommandent Metadeal",
-      description: "Avec une note moyenne de 4,7/5 sur plus de 500 avis.",
-      button: "Lire les avis"
-    },
-    {
-      title: "Un service client de qualité et à votre écoute. 7 jours sur 7.",
-      description: "Notre équipe de conseillers est disponible par telephone et par mail.",
-      button: "Contactez-nous"
-    }
-
-  ]
 
 
   useEffect(() => {
@@ -97,118 +81,54 @@ export default function Home() {
             loop={true}
             navigation={true}
             pagination={{ clickable: true }}
-            className="h-[400px] sm:h-[500px] md:h-[550px] w-full"
+            className="h-[500px] sm:h-[550px] md:h-[600px] w-full"
             breakpoints={{
               320: {
                 slidesPerView: 1,
                 spaceBetween: 10,
               },
               640: {
-                slidesPerView: 1.2,
+                slidesPerView: 1,
                 spaceBetween: 20,
               },
               768: {
-                slidesPerView: 1.5,
+                slidesPerView: 1.2,
                 spaceBetween: 30,
-              }
+              },
+              1024: {
+                slidesPerView: 1.5,
+                spaceBetween: 40,
+              },
             }}
           >
-            <SwiperSlide className="w-full sm:w-[90%] md:w-[80%]">
-              <div
-                className="flex flex-col justify-center items-center bg-white p-4 sm:p-6 pb-8 sm:pb-12 rounded-lg shadow-md mx-2 sm:mx-4 relative"
-                style={{
-                  backgroundImage: `url(${testimonials[0].image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                  height: '100%'
-                }}
-              >
-                <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
-
-                <div className="absolute md:left-20 sm:left-8 top-4 sm:top-8 z-20 flex flex-col items-start   gap-4 w-full max-w-sm">
-                  <h3 className="text-2xl hidden left-[-1em] top-[1em] md:block sm:text-3xl md:text-4xl font-bold py-6 sm:py-12 text-white leading-tight md:relative md:bottom-[-190px] md:right-[-200px]">
-                    {testimonials[0].text}
-                  </h3>
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index} className="flex justify-center items-center">
+                <div
+                  className="relative bg-cover bg-center w-full h-[500px] sm:h-[550px] md:h-[600px] rounded-lg shadow-md"
+                  style={{
+                    backgroundImage: `url(${testimonial.image})`,
+                  }}
+                >
+                  <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+                  <div className="absolute z-20 flex flex-col items-center justify-center w-full h-full px-4 sm:px-8 text-center">
+                    <h3 className="text-xl sm:text-2xl md:text-4xl font-bold text-white leading-tight mb-4 max-w-2xl">
+                      {testimonial.text}
+                    </h3>
+                    <button className="bg-[#C97435] hover:bg-[#b8612a] text-sm sm:text-lg md:text-xl px-6 py-3 rounded-full text-white font-semibold transition duration-200 shadow-lg">
+                      {testimonial.button}
+                    </button>
+                  </div>
+                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[80%] md:w-[60%] bg-white bg-opacity-70 rounded-lg p-4 shadow-md">
+                    <p className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-black">
+                      {testimonial.name}
+                    </p>
+                    <p className="text-sm sm:text-base md:text-lg text-black">
+                      {testimonial.review}
+                    </p>
+                  </div>
                 </div>
-
-                <button className="bg-[#C97435] hover:bg-[#b8612a] text-lg sm:text-2xl text-sm px-4 sm:px-6 py-2 sm:py-3 absolute bottom-8 sm:bottom-16 left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[350px] text-center rounded-full text-white font-semibold transition duration-200 shadow-lg">
-                  Je vérifie mon éligibilité
-                </button>
-
-                <div className="absolute z-10 bg-white bg-opacity-60 p-4 sm:p-8 flex flex-col 
-                    w-[90%] sm:w-[80%] md:w-[345px] 
-                    h-auto md:h-[300px]
-                    bottom-24 sm:bottom-32 md:top-[5em]
-                    right-[5%] sm:right-[10%] md:right-[5em]
-                    items-center rounded-lg">
-                  <p className="text-xl sm:text-2xl font-bold mb-4 text-black text-center tracking-wide">{testimonials[0].name}</p>
-                  <p className="text-base sm:text-xl md:text-2xl font-normal mb-8 text-black text-center leading-relaxed">{testimonials[0].review}</p>
-                </div>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide className="w-full sm:w-[90%] md:w-[80%]">
-              <div
-                className="flex flex-col justify-center items-center bg-white p-4 sm:p-6 pb-8 sm:pb-12 rounded-lg shadow-md mx-2 sm:mx-4 relative"
-                style={{
-                  backgroundImage: `url(${testimonials[1].image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                  height: '100%'
-                }}
-              >
-                <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
-
-                <div className="absolute left-[8em] sm:left-8 top-4 sm:top-8 z-20 flex flex-col items-start gap-4 w-full max-w-sm">
-                  <h3 className="text-2xl hidden md:block left-[-0em] top-0  sm:text-3xl md:text-4xl font-bold py-6 sm:py-12 text-white leading-tight md:relative md:bottom-[-190px] md:right-[-200px]">
-                    {testimonials[1].text}
-                  </h3>
-                </div>
-
-                <div className="absolute z-10 bg-white bg-opacity-60 p-4 sm:p-8 flex flex-col 
-                    w-[90%] sm:w-[80%] md:w-[345px]
-                    h-auto md:h-[300px]
-                    bottom-24 sm:bottom-32 md:top-[5em]
-                    right-[5%] sm:right-[10%] md:right-[5em]
-                    items-center rounded-lg">
-                  <p className="text-xl sm:text-2xl font-bold mb-4 text-black text-center tracking-wide">{testimonials[1].name}</p>
-                  <p className="text-base sm:text-xl md:text-2xl font-normal mb-8 text-black text-center leading-relaxed">{testimonials[1].review}</p>
-                </div>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide className="w-full sm:w-[90%] md:w-[80%]">
-              <div
-                className="flex flex-col justify-center items-center bg-white p-4 sm:p-6 pb-8 sm:pb-12 rounded-lg shadow-md mx-2 sm:mx-4 relative"
-                style={{
-                  backgroundImage: `url(${testimonials[2].image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                  height: '100%'
-                }}
-              >
-                <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
-
-                <div className="absolute left-4 sm:left-8 top-4 sm:top-8 z-20 flex flex-col items-start gap-4 w-full max-w-sm">
-                  <h3 className="text-2xl hidden md:block  sm:text-3xl md:text-4xl font-bold py-6 sm:py-12 text-white leading-tight">
-                    {testimonials[2].text}
-                  </h3>
-                </div>
-
-                <div className="absolute z-10 bg-white bg-opacity-60 p-4 sm:p-8 flex flex-col 
-                    w-[90%] sm:w-[80%] md:w-[345px]
-                    h-auto md:h-[300px]
-                    bottom-24 sm:bottom-32 md:top-[5em]
-                    right-[5%] sm:right-[10%] md:right-[5em]
-                    items-center rounded-lg">
-                  <p className="text-xl sm:text-2xl font-bold mb-4 text-black text-center tracking-wide">{testimonials[2].name}</p>
-                  <p className="text-base sm:text-xl md:text-2xl font-normal mb-8 text-black text-center leading-relaxed">{testimonials[2].review}</p>
-                </div>
-              </div>
-            </SwiperSlide>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
 

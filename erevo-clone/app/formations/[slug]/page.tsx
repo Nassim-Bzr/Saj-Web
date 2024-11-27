@@ -1,3 +1,4 @@
+"use client";
 import FormationClient from './FormationClient';
 import Navbar from '@/app/components/navbar';
 import Footer from '@/app/components/footer';

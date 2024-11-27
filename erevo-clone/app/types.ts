@@ -1,19 +1,14 @@
-// types.ts ou un fichier similaire
-
-import { StaticImageData } from "next/image";
-import { IconType } from "react-icons";
-
-export interface Categorie {
+export interface Formation {
   title: string;
   slug: string;
-  icon: any;
+  icon: any; // Vous pouvez spécifier un type plus précis pour les icônes
   color: string;
   description: string;
   image?: string;
-  formations: Formation[];
+  formations: FormationDetail[];
 }
 
-export interface Formation {
+export interface FormationDetail {
   title: string;
   slug: string;
   image: string;
@@ -25,4 +20,4 @@ export interface Formation {
   shortDescription: string;
   description?: string;
   nextSessions: string[];
-}
+} 
